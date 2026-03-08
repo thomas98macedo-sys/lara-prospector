@@ -1,5 +1,5 @@
 const https = require('https');
-const API_KEY = 'AIzaSyChMvYy67xyCHxygI--M6GuehqDLdjASDI';
+const API_KEY = process.env.GOOGLE_API_KEY;
 
 function fetchGoogle(url) {
   return new Promise((resolve, reject) => {
@@ -12,9 +12,11 @@ function fetchGoogle(url) {
 }
 
 exports.handler = async (event) => {
-  const { place_id } = event.queryStringParameters || {};
-  if (!place_id) return { statusCode: 400, body: JSON.stringify({ error: 'place_id obrigatorio' }) };
-  const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${encodeURIComponent(place_id)}&fields=name,formatted_phone_number,website,opening_hours&language=pt-BR&key=${API_KEY}`;
+  const { query, pagetoken } = event.queryStringParameters || {};
+  let url = `https://maps.googleapis.com/maps/api/place/textsearch/json?language=pt-BR&region=br&key=${API_KEY}`;
+  if (pagetoken) url += `&pagetoken=${encodeURIComponent(pagetoken)}`;
+  else if (query) url += `&query=${encodeURIComponent(query)}`;
+  else return { statusCode: 400, body: JSON.stringify({ error: 'query obrigatorio' }) };
   try {
     const data = await fetchGoogle(url);
     return { statusCode: 200, headers: { 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json' }, body: JSON.stringify(data) };
