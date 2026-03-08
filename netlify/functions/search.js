@@ -1,5 +1,5 @@
 const https = require('https');
-const API_KEY = 'AIzaSyChMvYy67xyCHxygI--M6GuehqDLdjASDI';
+const API_KEY = process.env.GOOGLE_API_KEY;
 
 function fetchGoogle(url) {
   return new Promise((resolve, reject) => {
