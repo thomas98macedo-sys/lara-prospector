@@ -7,66 +7,78 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#0a0b0f;--s1:#11131a;--s2:#191c27;--bd:#252836;
-  --gr:#00e5a0;--bl:#0066ff;--wn:#ff6b35;
-  --tx:#eef0f8;--mt:#6b7280;--m2:#9ca3af;
-}
+:root{--bg:#0a0b0f;--s1:#11131a;--s2:#191c27;--bd:#252836;--gr:#00e5a0;--bl:#0066ff;--wn:#ff6b35;--tx:#eef0f8;--mt:#6b7280;--m2:#9ca3af;}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;overflow-x:hidden}
-body::before{content:'';position:fixed;inset:0;pointer-events:none;
-  background-image:linear-gradient(rgba(0,229,160,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,160,.03) 1px,transparent 1px);
-  background-size:40px 40px}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(rgba(0,229,160,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,160,.03) 1px,transparent 1px);background-size:40px 40px}
 .w{max-width:1100px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
-
+#authOverlay{position:fixed;inset:0;background:rgba(10,11,15,.97);z-index:100;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(8px)}
+.auth-box{background:var(--s1);border:1px solid var(--bd);border-radius:24px;padding:40px;width:100%;max-width:420px;position:relative;overflow:hidden}
+.auth-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gr),var(--bl),transparent)}
+.auth-logo{display:flex;align-items:center;gap:12px;margin-bottom:28px;justify-content:center}
+.auth-logo-icon{width:48px;height:48px;background:linear-gradient(135deg,var(--gr),var(--bl));border-radius:14px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:#000}
+.auth-logo-txt{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;letter-spacing:.05em}
+.auth-logo-txt span{color:var(--gr)}
+.auth-title{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;text-align:center;margin-bottom:6px}
+.auth-sub{font-size:13px;color:var(--m2);text-align:center;margin-bottom:28px;line-height:1.6}
+.auth-tabs{display:flex;background:var(--s2);border-radius:10px;padding:4px;margin-bottom:24px;gap:4px}
+.auth-tab{flex:1;padding:9px;border:none;background:transparent;color:var(--mt);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;border-radius:7px;transition:all .2s}
+.auth-tab.act{background:var(--s1);color:var(--tx);box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.auth-fg{display:flex;flex-direction:column;gap:7px;margin-bottom:14px}
+.auth-fg label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--mt)}
+.auth-input{background:var(--s2);border:1px solid var(--bd);border-radius:10px;padding:12px 15px;color:var(--tx);font-family:'DM Sans',sans-serif;font-size:14px;outline:none;transition:border-color .2s,box-shadow .2s;width:100%}
+.auth-input:focus{border-color:var(--gr);box-shadow:0 0 0 3px rgba(0,229,160,.1)}
+.auth-input::placeholder{color:var(--mt)}
+.auth-btn{width:100%;background:linear-gradient(135deg,var(--gr),#00b87a);color:#000;border:none;border-radius:10px;padding:13px;font-family:'Syne',sans-serif;font-weight:700;font-size:14px;cursor:pointer;transition:transform .15s,box-shadow .15s,opacity .2s;margin-top:4px}
+.auth-btn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(0,229,160,.3)}
+.auth-btn:disabled{opacity:.45;cursor:not-allowed}
+.auth-divider{display:flex;align-items:center;gap:12px;margin:16px 0;color:var(--mt);font-size:12px}
+.auth-divider::before,.auth-divider::after{content:'';flex:1;height:1px;background:var(--bd)}
+.auth-google{width:100%;background:var(--s2);border:1px solid var(--bd);color:var(--tx);border-radius:10px;padding:12px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:14px;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:10px}
+.auth-google:hover{border-color:var(--gr);background:rgba(0,229,160,.05)}
+.auth-google svg{width:18px;height:18px;flex-shrink:0}
+.auth-err{font-size:12px;color:#ff6b6b;text-align:center;margin-top:10px;min-height:18px}
 header{padding:28px 0 0;display:flex;align-items:center;gap:14px}
 .logo{width:44px;height:44px;background:linear-gradient(135deg,var(--gr),var(--bl));border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:18px;color:#000;flex-shrink:0}
 .logo-txt{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;letter-spacing:.05em}
 .logo-txt span{color:var(--gr)}
-.badge{margin-left:auto;font-size:11px;color:var(--gr);border:1px solid rgba(0,229,160,.3);padding:4px 12px;border-radius:20px;background:rgba(0,229,160,.05);letter-spacing:.08em;text-transform:uppercase}
-
+.badge{font-size:11px;color:var(--gr);border:1px solid rgba(0,229,160,.3);padding:4px 12px;border-radius:20px;background:rgba(0,229,160,.05);letter-spacing:.08em;text-transform:uppercase}
+.user-area{margin-left:auto;display:flex;align-items:center;gap:10px}
+.user-name{font-size:13px;color:var(--m2)}
+.btn-logout{background:transparent;border:1px solid var(--bd);color:var(--mt);border-radius:8px;padding:6px 14px;font-size:12px;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif}
+.btn-logout:hover{border-color:#ff6b6b;color:#ff6b6b}
 .hero{padding:46px 0 28px}
 .hero h1{font-family:'Syne',sans-serif;font-size:clamp(26px,4.5vw,48px);font-weight:800;line-height:1.1;letter-spacing:-.02em;margin-bottom:12px}
 .hl{background:linear-gradient(90deg,var(--gr),var(--bl));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero p{font-size:15px;color:var(--m2);max-width:500px;line-height:1.75}
-
 .card{background:var(--s1);border:1px solid var(--bd);border-radius:20px;padding:26px;margin-bottom:20px;position:relative;overflow:hidden}
 .card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gr),var(--bl),transparent)}
-
 .sg{display:grid;grid-template-columns:1fr 1fr auto;gap:14px;align-items:end}
 @media(max-width:580px){.sg{grid-template-columns:1fr}}
-
 .fg{display:flex;flex-direction:column;gap:7px}
 .fg label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--mt)}
 input{background:var(--s2);border:1px solid var(--bd);border-radius:10px;padding:12px 15px;color:var(--tx);font-family:'DM Sans',sans-serif;font-size:14px;outline:none;transition:border-color .2s,box-shadow .2s;width:100%}
 input:focus{border-color:var(--gr);box-shadow:0 0 0 3px rgba(0,229,160,.1)}
 input::placeholder{color:var(--mt)}
-
 .btn{background:linear-gradient(135deg,var(--gr),#00b87a);color:#000;border:none;border-radius:10px;padding:12px 26px;font-family:'Syne',sans-serif;font-weight:700;font-size:14px;cursor:pointer;transition:transform .15s,box-shadow .15s,opacity .2s;display:flex;align-items:center;gap:8px;white-space:nowrap}
 .btn:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 8px 24px rgba(0,229,160,.3)}
 .btn:disabled{opacity:.45;cursor:not-allowed}
-
 .api-ok{margin-top:14px;padding:10px 15px;border-radius:9px;display:flex;align-items:center;gap:9px;font-size:13px;background:rgba(0,229,160,.05);border:1px solid rgba(0,229,160,.18);color:var(--gr)}
 .dot{width:8px;height:8px;border-radius:50%;background:var(--gr);box-shadow:0 0 6px var(--gr);animation:glow 2s infinite;flex-shrink:0}
 @keyframes glow{0%,100%{opacity:1}50%{opacity:.4}}
-
 .prog-wrap{flex:1;height:4px;background:var(--s2);border-radius:4px;overflow:hidden;margin-top:8px}
 .prog-bar{height:100%;background:linear-gradient(90deg,var(--gr),var(--bl));border-radius:4px;transition:width .4s ease;width:0}
-
 .status-box{display:none;margin-bottom:18px;padding:14px 16px;background:var(--s1);border:1px solid var(--bd);border-radius:12px}
 .status-box.on{display:block}
 .status-txt{font-size:13px;color:var(--m2);margin-bottom:8px;display:flex;align-items:center;gap:9px}
 .spinner{width:15px;height:15px;border:2px solid rgba(0,229,160,.2);border-top-color:var(--gr);border-radius:50%;animation:spin .7s linear infinite;flex-shrink:0}
 @keyframes spin{to{transform:rotate(360deg)}}
-
 .rh{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:10px}
 .rt{font-family:'Syne',sans-serif;font-size:18px;font-weight:700}
 .ct{font-size:12px;color:var(--m2);background:var(--s2);border:1px solid var(--bd);padding:4px 12px;border-radius:20px}
 .mtag{font-size:11px;color:var(--gr);background:rgba(0,229,160,.07);border:1px solid rgba(0,229,160,.2);padding:3px 10px;border-radius:6px;display:flex;align-items:center;gap:5px}
 .mdot{width:6px;height:6px;border-radius:50%;background:var(--gr);animation:glow 2s infinite}
-
 .bexp{background:var(--s2);border:1px solid var(--bd);color:var(--tx);border-radius:8px;padding:9px 15px;font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:7px;transition:all .15s}
 .bexp:hover{border-color:var(--gr);color:var(--gr);background:rgba(0,229,160,.05)}
-
 .tw{background:var(--s1);border:1px solid var(--bd);border-radius:16px;overflow:hidden;overflow-x:auto;margin-bottom:12px}
 table{width:100%;border-collapse:collapse;font-size:13px;min-width:720px}
 thead tr{background:var(--s2);border-bottom:1px solid var(--bd)}
@@ -77,230 +89,54 @@ tbody tr:last-child{border-bottom:none}
 tbody tr:hover{background:rgba(255,255,255,.02)}
 td{padding:12px 14px;vertical-align:middle;color:var(--m2);line-height:1.5}
 td.nm{font-weight:600;color:var(--tx);font-size:14px;min-width:150px}
-.stars{display:flex;align-items:center;gap:4px;white-space:nowrap}
 .sv{font-weight:700;color:#f5c542;font-size:13px}
 .sc{font-size:11px;color:var(--mt)}
 .ts{font-size:11px;font-weight:600;padding:3px 9px;border-radius:20px;white-space:nowrap}
 .open{background:rgba(0,229,160,.1);color:var(--gr);border:1px solid rgba(0,229,160,.2)}
 .closed{background:rgba(255,107,53,.08);color:var(--wn);border:1px solid rgba(255,107,53,.2)}
 .unk{background:rgba(107,114,128,.1);color:var(--mt);border:1px solid var(--bd)}
-.pl{color:var(--bl);text-decoration:none}
-.pl:hover{text-decoration:underline}
-.ml{color:var(--mt);font-size:11px;text-decoration:none;opacity:.75}
-.ml:hover{opacity:1;color:var(--gr)}
-
+.pl{color:var(--bl);text-decoration:none}.pl:hover{text-decoration:underline}
+.ml{color:var(--mt);font-size:11px;text-decoration:none;opacity:.75}.ml:hover{opacity:1;color:var(--gr)}
 .empty{text-align:center;padding:70px 20px}
 .empty .ei{font-size:52px;opacity:.3;margin-bottom:14px}
 .empty .et{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--m2);margin-bottom:8px}
 .empty .es{font-size:14px;color:var(--mt)}
-
 .pag{display:flex;gap:7px;align-items:center;justify-content:center;margin-bottom:44px;flex-wrap:wrap}
 .pg{background:var(--s2);border:1px solid var(--bd);color:var(--m2);border-radius:8px;padding:7px 13px;font-size:13px;cursor:pointer;transition:all .15s}
 .pg:hover,.pg.act{border-color:var(--gr);color:var(--gr);background:rgba(0,229,160,.05)}
 .pg:disabled{opacity:.3;cursor:not-allowed}
-
 footer{border-top:1px solid var(--bd);padding:22px 0;text-align:center;font-size:12px;color:var(--mt)}
 footer strong{color:var(--gr)}
-</style>
-</head>
-<body>
-<div class="w">
-
-  <header>
-    <div class="logo">L</div>
-    <div class="logo-txt">LAR<span>A</span></div>
-    <div class="badge">Prospecção B2B</div>
-  </header>
-
-  <section class="hero">
-    <h1>Encontre <span class="hl">leads qualificados</span><br>em segundos</h1>
-    <p>Busque empresas no Google Maps por cidade e nicho, extraia contatos e exporte planilha para seus SDRs.</p>
-  </section>
-
-  <div class="card">
-    <div class="sg">
-      <div class="fg">
-        <label>🏙 Cidade</label>
-        <input id="city" placeholder="Ex: São Paulo, Santos, Curitiba..." />
-      </div>
-      <div class="fg">
-        <label>🎯 Nicho / Segmento</label>
-        <input id="niche" placeholder="Ex: contabilidade, academia, clínica..." />
-      </div>
-      <button class="btn" id="btnSearch" onclick="startSearch()">🔍 Buscar</button>
-    </div>
-    <div class="api-ok">
-      <div class="dot"></div>
-      <span>Google Places API conectada — dados reais do Google Maps</span>
-    </div>
-  </div>
-
-  <div class="status-box" id="sb">
-    <div class="status-txt">
-      <div class="spinner"></div>
-      <span id="stxt">Buscando...</span>
-    </div>
-    <div class="prog-wrap"><div class="prog-bar" id="pb"></div></div>
-  </div>
-
-  <div id="empty" class="empty">
-    <div class="ei">🗺️</div>
-    <div class="et">Pronta para prospectar</div>
-    <div class="es">Digite cidade e nicho acima e clique em Buscar</div>
-  </div>
-
-  <div id="res" style="display:none">
-    <div class="rh">
-      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-        <div class="rt">Empresas encontradas</div>
-        <div class="ct" id="cnt">0</div>
-        <div class="mtag"><div class="mdot"></div> Google Maps Real</div>
-      </div>
-      <button class="bexp" onclick="exportCSV()">📥 Exportar CSV / Excel</button>
-    </div>
-    <div class="tw">
-      <table>
-        <thead><tr>
-          <th>#</th><th>Empresa</th><th>Avaliação</th><th>Status</th>
-          <th>Telefone</th><th>Endereço</th><th>Categoria</th><th>Maps</th>
-        </tr></thead>
-        <tbody id="tbody"></tbody>
-      </table>
-    </div>
-    <div class="pag" id="pgd"></div>
-  </div>
-
-  <footer><strong>LARA</strong> — Prospecção Inteligente &nbsp;·&nbsp; Google Places API</footer>
-</div>
-
+</style></head><body>
+<div id="authOverlay"><div class="auth-box"><div class="auth-logo"><div class="auth-logo-icon">L</div><div class="auth-logo-txt">LAR<span>A</span></div></div><div class="auth-title">Bem-vindo à LARA</div><div class="auth-sub">Prospecção B2B inteligente com dados reais do Google Maps</div><div class="auth-tabs"><button class="auth-tab act" id="tabLogin" onclick="switchTab('login')">Entrar</button><button class="auth-tab" id="tabRegister" onclick="switchTab('register')">Criar conta</button></div><div id="formLogin"><div class="auth-fg"><label>E-mail</label><input class="auth-input" id="loginEmail" type="email" placeholder="seu@email.com"/></div><div class="auth-fg"><label>Senha</label><input class="auth-input" id="loginPassword" type="password" placeholder="••••••••"/></div><button class="auth-btn" id="btnLogin" onclick="doLogin()">Entrar</button></div><div id="formRegister" style="display:none"><div class="auth-fg"><label>Nome</label><input class="auth-input" id="regName" type="text" placeholder="Seu nome"/></div><div class="auth-fg"><label>E-mail</label><input class="auth-input" id="regEmail" type="email" placeholder="seu@email.com"/></div><div class="auth-fg"><label>Senha</label><input class="auth-input" id="regPassword" type="password" placeholder="mínimo 6 caracteres"/></div><button class="auth-btn" id="btnRegister" onclick="doRegister()">Criar conta</button></div><div class="auth-divider">ou</div><button class="auth-google" onclick="doGoogle()"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>Continuar com Google</button><div class="auth-err" id="authErr"></div></div></div>
+<div class="w" id="appContent" style="display:none"><header><div class="logo">L</div><div class="logo-txt">LAR<span>A</span></div><div class="badge">Prospecção B2B</div><div class="user-area"><span class="user-name" id="userNameDisplay"></span><button class="btn-logout" onclick="doLogout()">Sair</button></div></header><section class="hero"><h1>Encontre <span class="hl">leads qualificados</span><br>em segundos</h1><p>Busque empresas no Google Maps por cidade e nicho, extraia contatos e exporte planilha para seus SDRs.</p></section><div class="card"><div class="sg"><div class="fg"><label>🏙 Cidade</label><input id="city" placeholder="Ex: São Paulo, Santos, Curitiba..."/></div><div class="fg"><label>🎯 Nicho / Segmento</label><input id="niche" placeholder="Ex: contabilidade, academia, clínica..."/></div><button class="btn" id="btnSearch" onclick="startSearch()">🔍 Buscar</button></div><div class="api-ok"><div class="dot"></div><span>Google Places API conectada — dados reais do Google Maps</span></div></div><div class="status-box" id="sb"><div class="status-txt"><div class="spinner"></div><span id="stxt">Buscando...</span></div><div class="prog-wrap"><div class="prog-bar" id="pb"></div></div></div><div id="empty" class="empty"><div class="ei">🗺️</div><div class="et">Pronta para prospectar</div><div class="es">Digite cidade e nicho acima e clique em Buscar</div></div><div id="res" style="display:none"><div class="rh"><div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap"><div class="rt">Empresas encontradas</div><div class="ct" id="cnt">0</div><div class="mtag"><div class="mdot"></div> Google Maps Real</div></div><button class="bexp" onclick="exportCSV()">📥 Exportar CSV / Excel</button></div><div class="tw"><table><thead><tr><th>#</th><th>Empresa</th><th>Avaliação</th><th>Status</th><th>Telefone</th><th>Endereço</th><th>Categoria</th><th>Maps</th></tr></thead><tbody id="tbody"></tbody></table></div><div class="pag" id="pgd"></div></div><footer><strong>LARA</strong> — Prospecção Inteligente &nbsp;·&nbsp; Google Places API</footer></div>
+<script type="module">
+import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import{getAuth,signInWithEmailAndPassword,createUserWithEmailAndPassword,signInWithPopup,GoogleAuthProvider,signOut,onAuthStateChanged,updateProfile}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+const firebaseConfig={apiKey:"AIzaSyCzdhnOZw0P95391IzXUZ7L-X_u-V3xofQ",authDomain:"lara-prospector.firebaseapp.com",projectId:"lara-prospector",storageBucket:"lara-prospector.firebasestorage.app",messagingSenderId:"1081384368369",appId:"1:1081384368369:web:5ba2d5f22909bc1e7bd150",measurementId:"G-E335L723GJ"};
+const app=initializeApp(firebaseConfig);const auth=getAuth(app);const googleProvider=new GoogleAuthProvider();
+function showErr(msg){document.getElementById('authErr').textContent=msg;}
+function clearErr(){document.getElementById('authErr').textContent='';}
+function setLoading(btn,loading){document.getElementById(btn).disabled=loading;document.getElementById(btn).textContent=loading?'Aguarde...':(btn==='btnLogin'?'Entrar':'Criar conta');}
+onAuthStateChanged(auth,user=>{if(user){document.getElementById('authOverlay').style.display='none';document.getElementById('appContent').style.display='block';const name=user.displayName||user.email.split('@')[0];document.getElementById('userNameDisplay').textContent='Olá, '+name;}else{document.getElementById('authOverlay').style.display='flex';document.getElementById('appContent').style.display='none';}});
+window.doLogin=async function(){clearErr();const email=document.getElementById('loginEmail').value.trim();const password=document.getElementById('loginPassword').value;if(!email||!password){showErr('Preencha e-mail e senha.');return;}setLoading('btnLogin',true);try{await signInWithEmailAndPassword(auth,email,password);}catch(e){const msgs={'auth/user-not-found':'Usuário não encontrado.','auth/wrong-password':'Senha incorreta.','auth/invalid-email':'E-mail inválido.','auth/too-many-requests':'Muitas tentativas. Tente mais tarde.','auth/invalid-credential':'E-mail ou senha incorretos.'};showErr(msgs[e.code]||'Erro ao entrar. Tente novamente.');}setLoading('btnLogin',false);};
+window.doRegister=async function(){clearErr();const name=document.getElementById('regName').value.trim();const email=document.getElementById('regEmail').value.trim();const password=document.getElementById('regPassword').value;if(!name||!email||!password){showErr('Preencha todos os campos.');return;}if(password.length<6){showErr('Senha deve ter pelo menos 6 caracteres.');return;}setLoading('btnRegister',true);try{const cred=await createUserWithEmailAndPassword(auth,email,password);await updateProfile(cred.user,{displayName:name});}catch(e){const msgs={'auth/email-already-in-use':'E-mail já cadastrado.','auth/invalid-email':'E-mail inválido.','auth/weak-password':'Senha muito fraca.'};showErr(msgs[e.code]||'Erro ao criar conta.');}setLoading('btnRegister',false);};
+window.doGoogle=async function(){clearErr();try{await signInWithPopup(auth,googleProvider);}catch(e){if(e.code!=='auth/popup-closed-by-user'){showErr('Erro ao entrar com Google.');}}};
+window.doLogout=async function(){await signOut(auth);};
+window.switchTab=function(tab){document.getElementById('formLogin').style.display=tab==='login'?'block':'none';document.getElementById('formRegister').style.display=tab==='register'?'block':'none';document.getElementById('tabLogin').classList.toggle('act',tab==='login');document.getElementById('tabRegister').classList.toggle('act',tab==='register');clearErr();};
+['loginEmail','loginPassword'].forEach(id=>{document.getElementById(id).addEventListener('keydown',e=>{if(e.key==='Enter')window.doLogin();});});
+['regName','regEmail','regPassword'].forEach(id=>{document.getElementById(id).addEventListener('keydown',e=>{if(e.key==='Enter')window.doRegister();});});
+</script>
 <script>
-let leads=[], page=1;
-const PER=20;
-
-function st(msg,pct,show=true){
-  document.getElementById('stxt').textContent=msg;
-  document.getElementById('pb').style.width=pct+'%';
-  document.getElementById('sb').classList.toggle('on',show);
-}
-
-async function apiFetch(path){
-  const r=await fetch(path);
-  if(!r.ok) throw new Error('HTTP '+r.status);
-  return r.json();
-}
-
-async function startSearch(){
-  const city=document.getElementById('city').value.trim();
-  const niche=document.getElementById('niche').value.trim();
-  if(!city||!niche){alert('Preencha cidade e nicho.');return;}
-  document.getElementById('btnSearch').disabled=true;
-  document.getElementById('empty').style.display='none';
-  document.getElementById('res').style.display='none';
-  leads=[];
-  try{
-    await fetchLeads(city,niche);
-    renderTable(1);
-  }catch(e){
-    alert('Erro: '+e.message);
-  }
-  st('',0,false);
-  document.getElementById('btnSearch').disabled=false;
-}
-
-async function fetchLeads(city,niche){
-  const q=encodeURIComponent(niche+' em '+city+' Brasil');
-  let token='',pg=0;
-  do{
-    st('🔍 Buscando no Google Maps... ('+leads.length+' encontradas)',Math.round(pg/3*50));
-    const url=token?'/api/search?pagetoken='+encodeURIComponent(token):'/api/search?query='+q;
-    const d=await apiFetch(url);
-    if(d.status==='REQUEST_DENIED') throw new Error('API Key inválida: '+d.error_message);
-    if(d.status==='ZERO_RESULTS') break;
-    if(!['OK','ZERO_RESULTS'].includes(d.status)) throw new Error('Google: '+d.status);
-    for(const p of (d.results||[])){
-      const open=p.opening_hours?.open_now;
-      leads.push({
-        id:p.place_id,name:p.name,
-        rating:p.rating||0,reviews:p.user_ratings_total||0,
-        open:open===true?'Aberto':open===false?'Fechado':'—',
-        phone:'…',
-        address:(p.formatted_address||p.vicinity||'—').replace(/, Bras(il|ilia)?/,''),
-        cat:(p.types||[]).filter(t=>!['point_of_interest','establishment','geocode'].includes(t)).slice(0,2).map(t=>t.replace(/_/g,' ')).join(', ')||niche,
-        url:'https://www.google.com/maps/place/?q=place_id:'+p.place_id,
-        site:''
-      });
-    }
-    token=d.next_page_token||'';pg++;
-    if(token&&pg<3) await new Promise(r=>setTimeout(r,2200));
-  }while(token&&pg<3);
-
-  leads.sort((a,b)=>b.rating-a.rating||b.reviews-a.reviews);
-
-  // Busca telefones em lotes de 5
-  for(let i=0;i<leads.length;i+=5){
-    const pct=50+Math.round(((i+5)/leads.length)*50);
-    st('📞 Buscando telefones... ('+Math.min(i+5,leads.length)+'/'+leads.length+')',Math.min(pct,97));
-    await Promise.all(leads.slice(i,i+5).map(async l=>{
-      try{
-        const d=await apiFetch('/api/details?place_id='+l.id);
-        l.phone=d.result?.formatted_phone_number||'—';
-        l.site=d.result?.website||'';
-      }catch{l.phone='—';}
-    }));
-  }
-}
-
+let leads=[],page=1;const PER=20;
+function st(msg,pct,show=true){document.getElementById('stxt').textContent=msg;document.getElementById('pb').style.width=pct+'%';document.getElementById('sb').classList.toggle('on',show);}
+async function apiFetch(path){const r=await fetch(path);if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}
+async function startSearch(){const city=document.getElementById('city').value.trim();const niche=document.getElementById('niche').value.trim();if(!city||!niche){alert('Preencha cidade e nicho.');return;}document.getElementById('btnSearch').disabled=true;document.getElementById('empty').style.display='none';document.getElementById('res').style.display='none';leads=[];try{await fetchLeads(city,niche);renderTable(1);}catch(e){alert('Erro: '+e.message);}st('',0,false);document.getElementById('btnSearch').disabled=false;}
+async function fetchLeads(city,niche){const q=encodeURIComponent(niche+' em '+city+' Brasil');let token='',pg=0;do{st('🔍 Buscando no Google Maps... ('+leads.length+' encontradas)',Math.round(pg/3*50));const url=token?'/api/search?pagetoken='+encodeURIComponent(token):'/api/search?query='+q;const d=await apiFetch(url);if(d.status==='REQUEST_DENIED')throw new Error('API Key inválida: '+d.error_message);if(d.status==='ZERO_RESULTS')break;if(d.status==='INVALID_REQUEST')break;if(!['OK','ZERO_RESULTS'].includes(d.status))throw new Error('Google: '+d.status);for(const p of(d.results||[])){const open=p.opening_hours?.open_now;leads.push({id:p.place_id,name:p.name,rating:p.rating||0,reviews:p.user_ratings_total||0,open:open===true?'Aberto':open===false?'Fechado':'—',phone:'…',address:(p.formatted_address||p.vicinity||'—').replace(/,s*Bras(il|ilia)?/,''),cat:(p.types||[]).filter(t=>!['point_of_interest','establishment','geocode'].includes(t)).slice(0,2).map(t=>t.replace(/_/g,' ')).join(', ')||niche,url:'https://www.google.com/maps/place/?q=place_id:'+p.place_id,site:''});}token=d.next_page_token||'';pg++;if(token&&pg<3)await new Promise(r=>setTimeout(r,2200));}while(token&&pg<3);leads.sort((a,b)=>b.rating-a.rating||b.reviews-a.reviews);for(let i=0;i<leads.length;i+=5){const pct=50+Math.round(((i+5)/leads.length)*50);st('📞 Buscando telefones... ('+Math.min(i+5,leads.length)+'/'+leads.length+')',Math.min(pct,97));await Promise.all(leads.slice(i,i+5).map(async l=>{try{const d=await apiFetch('/api/details?place_id='+l.id);l.phone=d.result?.formatted_phone_number||'—';l.site=d.result?.website||'';}catch{l.phone='—';}}));}}
 function star(r){return'★'.repeat(Math.round(r))+'☆'.repeat(5-Math.round(r));}
-
-function renderTable(p){
-  page=p;
-  const tbody=document.getElementById('tbody');
-  tbody.innerHTML='';
-  const start=(p-1)*PER;
-  leads.slice(start,start+PER).forEach((l,i)=>{
-    const gi=start+i+1;
-    const sc=l.open==='Aberto'?'open':l.open==='Fechado'?'closed':'unk';
-    const tr=document.createElement('tr');
-    tr.style.animationDelay=i*.025+'s';
-    tr.innerHTML=`
-      <td style="color:var(--mt);font-size:12px">${gi}</td>
-      <td class="nm">${l.name}</td>
-      <td>${l.rating?`<div class="stars"><span class="sv">${l.rating.toFixed(1)}</span><span style="color:#f5c542;font-size:11px">${star(l.rating)}</span><span class="sc">(${l.reviews.toLocaleString('pt-BR')})</span></div>`:'<span style="color:var(--mt)">—</span>'}</td>
-      <td><span class="ts ${sc}">${l.open}</span></td>
-      <td>${l.phone&&l.phone!=='—'?`<a href="tel:${l.phone}" class="pl">${l.phone}</a>`:'<span style="color:var(--mt)">—</span>'}</td>
-      <td style="font-size:12px">${l.address}</td>
-      <td style="font-size:11px;color:var(--mt)">${l.cat}</td>
-      <td><a href="${l.url}" target="_blank" class="ml">📍 Ver</a></td>`;
-    tbody.appendChild(tr);
-  });
-  document.getElementById('cnt').textContent=leads.length+' empresas';
-  document.getElementById('res').style.display='block';
-  renderPag();
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-
-function renderPag(){
-  const tot=Math.ceil(leads.length/PER);
-  const pg=document.getElementById('pgd'); pg.innerHTML='';
-  if(tot<=1)return;
-  const mk=(lbl,p,dis)=>{const b=document.createElement('button');b.className='pg'+(p===page?' act':'');b.textContent=lbl;b.disabled=dis;b.onclick=()=>!dis&&renderTable(p);pg.appendChild(b);};
-  mk('← Anterior',page-1,page===1);
-  for(let i=1;i<=tot;i++)mk(i,i,false);
-  mk('Próxima →',page+1,page===tot);
-}
-
-function exportCSV(){
-  if(!leads.length){alert('Sem dados.');return;}
-  const h=['#','Empresa','Avaliação','Reviews','Status','Telefone','Endereço','Categoria','Maps','Site'];
-  const rows=leads.map((l,i)=>[i+1,`"${l.name.replace(/"/g,'""')}"`,l.rating||'',l.reviews||'',l.open,l.phone,`"${l.address.replace(/"/g,'""')}"`,`"${l.cat}"`,l.url,l.site]);
-  const csv=[h.join(','),...rows.map(r=>r.join(','))].join('\n');
-  const a=document.createElement('a');
-  a.href=URL.createObjectURL(new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8;'}));
-  a.download=`leads_${document.getElementById('niche').value.replace(/\s+/g,'_')}_${document.getElementById('city').value.replace(/\s+/g,'_')}.csv`;
-  a.click();
-}
-
+function renderTable(p){page=p;const tbody=document.getElementById('tbody');tbody.innerHTML='';const start=(p-1)*PER;leads.slice(start,start+PER).forEach((l,i)=>{const gi=start+i+1;const sc=l.open==='Aberto'?'open':l.open==='Fechado'?'closed':'unk';const tr=document.createElement('tr');tr.style.animationDelay=i*.025+'s';tr.innerHTML='<td style="color:var(--mt);font-size:12px">'+gi+'</td><td class="nm">'+l.name+'</td><td>'+(l.rating?'<div class="stars"><span class="sv">'+l.rating.toFixed(1)+'</span><span style="color:#f5c542;font-size:11px">'+star(l.rating)+'</span><span class="sc">('+l.reviews.toLocaleString('pt-BR')+')</span></div>':'<span style="color:var(--mt)">—</span>')+'</td><td><span class="ts '+sc+'">'+l.open+'</span></td><td>'+(l.phone&&l.phone!=='—'?'<a href="tel:'+l.phone+'" class="pl">'+l.phone+'</a>':'<span style="color:var(--mt)">—</span>')+'</td><td style="font-size:12px">'+l.address+'</td><td style="font-size:11px;color:var(--mt)">'+l.cat+'</td><td><a href="'+l.url+'" target="_blank" class="ml">📍 Ver</a></td>';tbody.appendChild(tr);});document.getElementById('cnt').textContent=leads.length+' empresas';document.getElementById('res').style.display='block';renderPag();window.scrollTo({top:0,behavior:'smooth'});}
+function renderPag(){const tot=Math.ceil(leads.length/PER);const pg=document.getElementById('pgd');pg.innerHTML='';if(tot<=1)return;const mk=(lbl,p,dis)=>{const b=document.createElement('button');b.className='pg'+(p===page?' act':'');b.textContent=lbl;b.disabled=dis;b.onclick=()=>!dis&&renderTable(p);pg.appendChild(b);};mk('← Anterior',page-1,page===1);for(let i=1;i<=tot;i++)mk(i,i,false);mk('Próxima →',page+1,page===tot);}
+function exportCSV(){if(!leads.length){alert('Sem dados.');return;}const h=['#','Empresa','Avaliação','Reviews','Status','Telefone','Endereço','Categoria','Maps','Site'];const rows=leads.map((l,i)=>[i+1,'"'+l.name.replace(/"/g,'""')+'"',l.rating||'',l.reviews||'',l.open,l.phone,'"'+l.address.replace(/"/g,'""')+'"','"'+l.cat+'"',l.url,l.site]);const csv=[h.join(','),...rows.map(r=>r.join(','))].join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8;'}));a.download='leads_'+document.getElementById('niche').value.replace(/\s+/g,'_')+'_'+document.getElementById('city').value.replace(/\s+/g,'_')+'.csv';a.click();}
 ['city','niche'].forEach(id=>document.getElementById(id).addEventListener('keydown',e=>{if(e.key==='Enter')startSearch();}));
 </script>
-</body>
-</html>
+</body></html>
