@@ -3,14 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LARA — Prospecção B2B</title>
+<title>LARA â ProspecÃ§Ã£o B2B</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#0a0b0f;--s1:#11131a;--s2:#191c27;--bd:#252836;--gr:#00e5a0;--bl:#0066ff;--wn:#ff6b35;--tx:#eef0f8;--mt:#6b7280;--m2:#9ca3af;}
+:root{
+  --bg:#0a0b0f;--s1:#11131a;--s2:#191c27;--bd:#252836;
+  --gr:#00e5a0;--bl:#0066ff;--wn:#ff6b35;
+  --tx:#eef0f8;--mt:#6b7280;--m2:#9ca3af;
+}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;overflow-x:hidden}
-body::before{content:'';position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(rgba(0,229,160,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,160,.03) 1px,transparent 1px);background-size:40px 40px}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(0,229,160,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,160,.03) 1px,transparent 1px);
+  background-size:40px 40px}
 .w{max-width:1100px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
+
+/* ââ AUTH OVERLAY ââ */
 #authOverlay{position:fixed;inset:0;background:rgba(10,11,15,.97);z-index:100;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(8px)}
 .auth-box{background:var(--s1);border:1px solid var(--bd);border-radius:24px;padding:40px;width:100%;max-width:420px;position:relative;overflow:hidden}
 .auth-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gr),var(--bl),transparent)}
@@ -37,6 +45,8 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;background-im
 .auth-google:hover{border-color:var(--gr);background:rgba(0,229,160,.05)}
 .auth-google svg{width:18px;height:18px;flex-shrink:0}
 .auth-err{font-size:12px;color:#ff6b6b;text-align:center;margin-top:10px;min-height:18px}
+
+/* ââ HEADER ââ */
 header{padding:28px 0 0;display:flex;align-items:center;gap:14px}
 .logo{width:44px;height:44px;background:linear-gradient(135deg,var(--gr),var(--bl));border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:18px;color:#000;flex-shrink:0}
 .logo-txt{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;letter-spacing:.05em}
@@ -46,6 +56,10 @@ header{padding:28px 0 0;display:flex;align-items:center;gap:14px}
 .user-name{font-size:13px;color:var(--m2)}
 .btn-logout{background:transparent;border:1px solid var(--bd);color:var(--mt);border-radius:8px;padding:6px 14px;font-size:12px;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif}
 .btn-logout:hover{border-color:#ff6b6b;color:#ff6b6b}
+.btn-admin{background:linear-gradient(135deg,rgba(0,229,160,.15),rgba(0,102,255,.15));border:1px solid rgba(0,229,160,.4);color:var(--gr);border-radius:8px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;transition:all .2s;font-family:'Syne',sans-serif;display:none;align-items:center;gap:6px}
+.btn-admin:hover{background:linear-gradient(135deg,rgba(0,229,160,.25),rgba(0,102,255,.25));box-shadow:0 0 16px rgba(0,229,160,.2)}
+
+/* ââ APP ââ */
 .hero{padding:46px 0 28px}
 .hero h1{font-family:'Syne',sans-serif;font-size:clamp(26px,4.5vw,48px);font-weight:800;line-height:1.1;letter-spacing:-.02em;margin-bottom:12px}
 .hl{background:linear-gradient(90deg,var(--gr),var(--bl));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -95,8 +109,10 @@ td.nm{font-weight:600;color:var(--tx);font-size:14px;min-width:150px}
 .open{background:rgba(0,229,160,.1);color:var(--gr);border:1px solid rgba(0,229,160,.2)}
 .closed{background:rgba(255,107,53,.08);color:var(--wn);border:1px solid rgba(255,107,53,.2)}
 .unk{background:rgba(107,114,128,.1);color:var(--mt);border:1px solid var(--bd)}
-.pl{color:var(--bl);text-decoration:none}.pl:hover{text-decoration:underline}
-.ml{color:var(--mt);font-size:11px;text-decoration:none;opacity:.75}.ml:hover{opacity:1;color:var(--gr)}
+.pl{color:var(--bl);text-decoration:none}
+.pl:hover{text-decoration:underline}
+.ml{color:var(--mt);font-size:11px;text-decoration:none;opacity:.75}
+.ml:hover{opacity:1;color:var(--gr)}
 .empty{text-align:center;padding:70px 20px}
 .empty .ei{font-size:52px;opacity:.3;margin-bottom:14px}
 .empty .et{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--m2);margin-bottom:8px}
@@ -107,36 +123,615 @@ td.nm{font-weight:600;color:var(--tx);font-size:14px;min-width:150px}
 .pg:disabled{opacity:.3;cursor:not-allowed}
 footer{border-top:1px solid var(--bd);padding:22px 0;text-align:center;font-size:12px;color:var(--mt)}
 footer strong{color:var(--gr)}
-</style></head><body>
-<div id="authOverlay"><div class="auth-box"><div class="auth-logo"><div class="auth-logo-icon">L</div><div class="auth-logo-txt">LAR<span>A</span></div></div><div class="auth-title">Bem-vindo à LARA</div><div class="auth-sub">Prospecção B2B inteligente com dados reais do Google Maps</div><div class="auth-tabs"><button class="auth-tab act" id="tabLogin" onclick="switchTab('login')">Entrar</button><button class="auth-tab" id="tabRegister" onclick="switchTab('register')">Criar conta</button></div><div id="formLogin"><div class="auth-fg"><label>E-mail</label><input class="auth-input" id="loginEmail" type="email" placeholder="seu@email.com"/></div><div class="auth-fg"><label>Senha</label><input class="auth-input" id="loginPassword" type="password" placeholder="••••••••"/></div><button class="auth-btn" id="btnLogin" onclick="doLogin()">Entrar</button></div><div id="formRegister" style="display:none"><div class="auth-fg"><label>Nome</label><input class="auth-input" id="regName" type="text" placeholder="Seu nome"/></div><div class="auth-fg"><label>E-mail</label><input class="auth-input" id="regEmail" type="email" placeholder="seu@email.com"/></div><div class="auth-fg"><label>Senha</label><input class="auth-input" id="regPassword" type="password" placeholder="mínimo 6 caracteres"/></div><button class="auth-btn" id="btnRegister" onclick="doRegister()">Criar conta</button></div><div class="auth-divider">ou</div><button class="auth-google" onclick="doGoogle()"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>Continuar com Google</button><div class="auth-err" id="authErr"></div></div></div>
-<div class="w" id="appContent" style="display:none"><header><div class="logo">L</div><div class="logo-txt">LAR<span>A</span></div><div class="badge">Prospecção B2B</div><div class="user-area"><span class="user-name" id="userNameDisplay"></span><button class="btn-logout" onclick="doLogout()">Sair</button></div></header><section class="hero"><h1>Encontre <span class="hl">leads qualificados</span><br>em segundos</h1><p>Busque empresas no Google Maps por cidade e nicho, extraia contatos e exporte planilha para seus SDRs.</p></section><div class="card"><div class="sg"><div class="fg"><label>🏙 Cidade</label><input id="city" placeholder="Ex: São Paulo, Santos, Curitiba..."/></div><div class="fg"><label>🎯 Nicho / Segmento</label><input id="niche" placeholder="Ex: contabilidade, academia, clínica..."/></div><button class="btn" id="btnSearch" onclick="startSearch()">🔍 Buscar</button></div><div class="api-ok"><div class="dot"></div><span>Google Places API conectada — dados reais do Google Maps</span></div></div><div class="status-box" id="sb"><div class="status-txt"><div class="spinner"></div><span id="stxt">Buscando...</span></div><div class="prog-wrap"><div class="prog-bar" id="pb"></div></div></div><div id="empty" class="empty"><div class="ei">🗺️</div><div class="et">Pronta para prospectar</div><div class="es">Digite cidade e nicho acima e clique em Buscar</div></div><div id="res" style="display:none"><div class="rh"><div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap"><div class="rt">Empresas encontradas</div><div class="ct" id="cnt">0</div><div class="mtag"><div class="mdot"></div> Google Maps Real</div></div><button class="bexp" onclick="exportCSV()">📥 Exportar CSV / Excel</button></div><div class="tw"><table><thead><tr><th>#</th><th>Empresa</th><th>Avaliação</th><th>Status</th><th>Telefone</th><th>Endereço</th><th>Categoria</th><th>Maps</th></tr></thead><tbody id="tbody"></tbody></table></div><div class="pag" id="pgd"></div></div><footer><strong>LARA</strong> — Prospecção Inteligente &nbsp;·&nbsp; Google Places API</footer></div>
+
+/* ââ ADMIN PANEL ââ */
+#adminOverlay{position:fixed;inset:0;background:rgba(10,11,15,.97);z-index:200;display:none;flex-direction:column;backdrop-filter:blur(8px);overflow-y:auto}
+#adminOverlay.open{display:flex}
+.adm-header{background:var(--s1);border-bottom:1px solid var(--bd);padding:20px 28px;display:flex;align-items:center;gap:16px;position:sticky;top:0;z-index:10}
+.adm-header-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--gr),var(--bl));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.adm-title{font-family:'Syne',sans-serif;font-size:20px;font-weight:800}
+.adm-title span{color:var(--gr)}
+.adm-subtitle{font-size:12px;color:var(--mt)}
+.adm-close{margin-left:auto;background:transparent;border:1px solid var(--bd);color:var(--mt);border-radius:8px;padding:8px 16px;font-size:13px;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif}
+.adm-close:hover{border-color:#ff6b6b;color:#ff6b6b}
+.adm-body{padding:28px;max-width:1100px;margin:0 auto;width:100%}
+.adm-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:28px}
+.adm-kpi{background:var(--s1);border:1px solid var(--bd);border-radius:16px;padding:20px 24px;position:relative;overflow:hidden}
+.adm-kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gr),var(--bl),transparent)}
+.adm-kpi-val{font-family:'Syne',sans-serif;font-size:32px;font-weight:800;color:var(--gr);line-height:1}
+.adm-kpi-lbl{font-size:11px;color:var(--mt);text-transform:uppercase;letter-spacing:.1em;margin-top:6px}
+.adm-kpi-sub{font-size:12px;color:var(--m2);margin-top:4px}
+.adm-section{margin-bottom:28px}
+.adm-section-title{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.adm-section-title::after{content:'';flex:1;height:1px;background:var(--bd)}
+.adm-table-wrap{background:var(--s1);border:1px solid var(--bd);border-radius:16px;overflow:hidden;overflow-x:auto}
+.adm-table{width:100%;border-collapse:collapse;font-size:13px;min-width:600px}
+.adm-table thead tr{background:var(--s2);border-bottom:1px solid var(--bd)}
+.adm-table th{padding:11px 14px;text-align:left;font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mt)}
+.adm-table tbody tr{border-bottom:1px solid var(--bd);transition:background .12s}
+.adm-table tbody tr:last-child{border-bottom:none}
+.adm-table tbody tr:hover{background:rgba(255,255,255,.02)}
+.adm-table td{padding:11px 14px;color:var(--m2)}
+.adm-table td.hi{color:var(--tx);font-weight:600}
+.adm-pill{font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:rgba(0,229,160,.1);color:var(--gr);border:1px solid rgba(0,229,160,.2)}
+.adm-loading{text-align:center;padding:40px;color:var(--mt);font-size:14px}
+.adm-empty{text-align:center;padding:30px;color:var(--mt);font-size:13px}
+.adm-top-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px}
+@media(max-width:680px){.adm-top-grid{grid-template-columns:1fr}}
+.adm-top-item{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-radius:10px;background:var(--s2);border:1px solid var(--bd)}
+.adm-top-item-label{font-size:13px;color:var(--tx)}
+.adm-top-item-count{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--gr)}
+.adm-refresh{background:var(--s2);border:1px solid var(--bd);color:var(--m2);border-radius:8px;padding:6px 14px;font-size:12px;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;margin-left:10px}
+.adm-refresh:hover{border-color:var(--gr);color:var(--gr)}
+</style>
+</head>
+<body>
+
+<!-- AUTH OVERLAY -->
+<div id="authOverlay">
+  <div class="auth-box">
+    <div class="auth-logo">
+      <div class="auth-logo-icon">L</div>
+      <div class="auth-logo-txt">LAR<span>A</span></div>
+    </div>
+    <div class="auth-title">Bem-vindo Ã  LARA</div>
+    <div class="auth-sub">ProspecÃ§Ã£o B2B inteligente com dados reais do Google Maps</div>
+
+    <div class="auth-tabs">
+      <button class="auth-tab act" id="tabLogin" onclick="switchTab('login')">Entrar</button>
+      <button class="auth-tab" id="tabRegister" onclick="switchTab('register')">Criar conta</button>
+    </div>
+
+    <div id="formLogin">
+      <div class="auth-fg">
+        <label>E-mail</label>
+        <input class="auth-input" id="loginEmail" type="email" placeholder="seu@email.com" />
+      </div>
+      <div class="auth-fg">
+        <label>Senha</label>
+        <input class="auth-input" id="loginPassword" type="password" placeholder="â¢â¢â¢â¢â¢â¢â¢â¢" />
+      </div>
+      <button class="auth-btn" id="btnLogin" onclick="doLogin()">Entrar</button>
+    </div>
+
+    <div id="formRegister" style="display:none">
+      <div class="auth-fg">
+        <label>Nome</label>
+        <input class="auth-input" id="regName" type="text" placeholder="Seu nome" />
+      </div>
+      <div class="auth-fg">
+        <label>E-mail</label>
+        <input class="auth-input" id="regEmail" type="email" placeholder="seu@email.com" />
+      </div>
+      <div class="auth-fg">
+        <label>Senha</label>
+        <input class="auth-input" id="regPassword" type="password" placeholder="mÃ­nimo 6 caracteres" />
+      </div>
+      <button class="auth-btn" id="btnRegister" onclick="doRegister()">Criar conta</button>
+    </div>
+
+    <div class="auth-divider">ou</div>
+
+    <button class="auth-google" onclick="doGoogle()">
+      <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84z"/></svg>
+      Continuar com Google
+    </button>
+
+    <div class="auth-err" id="authErr"></div>
+  </div>
+</div>
+
+<!-- ADMIN PANEL OVERLAY -->
+<div id="adminOverlay">
+  <div class="adm-header">
+    <div class="adm-header-icon">âï¸</div>
+    <div>
+      <div class="adm-title">Painel <span>Admin</span></div>
+      <div class="adm-subtitle">thomas98macedo@gmail.com â acesso exclusivo</div>
+    </div>
+    <button class="adm-refresh" onclick="loadAdminData()">â» Atualizar</button>
+    <button class="adm-close" onclick="closeAdmin()">â Fechar</button>
+  </div>
+
+  <div class="adm-body">
+    <!-- KPIs -->
+    <div class="adm-kpis">
+      <div class="adm-kpi">
+        <div class="adm-kpi-val" id="admTotalSearches">â</div>
+        <div class="adm-kpi-lbl">Buscas realizadas</div>
+        <div class="adm-kpi-sub" id="admSearchesSub">carregando...</div>
+      </div>
+      <div class="adm-kpi">
+        <div class="adm-kpi-val" id="admTotalLeads">â</div>
+        <div class="adm-kpi-lbl">Total de leads gerados</div>
+        <div class="adm-kpi-sub" id="admLeadsSub">carregando...</div>
+      </div>
+      <div class="adm-kpi">
+        <div class="adm-kpi-val" id="admTotalUsers">â</div>
+        <div class="adm-kpi-lbl">UsuÃ¡rios Ãºnicos</div>
+        <div class="adm-kpi-sub" id="admUsersSub">carregando...</div>
+      </div>
+      <div class="adm-kpi">
+        <div class="adm-kpi-val" id="admAvgLeads">â</div>
+        <div class="adm-kpi-lbl">MÃ©dia leads/busca</div>
+        <div class="adm-kpi-sub">por pesquisa realizada</div>
+      </div>
+    </div>
+
+    <!-- Top niches & cities -->
+    <div class="adm-top-grid">
+      <div>
+        <div class="adm-section-title">ð¯ Nichos mais buscados</div>
+        <div id="admTopNiches" class="adm-loading">carregando...</div>
+      </div>
+      <div>
+        <div class="adm-section-title">ð Cidades mais buscadas</div>
+        <div id="admTopCities" class="adm-loading">carregando...</div>
+      </div>
+    </div>
+
+    <!-- Search history -->
+    <div class="adm-section">
+      <div class="adm-section-title">ð HistÃ³rico de buscas (Ãºltimas 50)</div>
+      <div class="adm-table-wrap">
+        <table class="adm-table">
+          <thead><tr>
+            <th>Data/Hora</th>
+            <th>UsuÃ¡rio</th>
+            <th>Cidade</th>
+            <th>Nicho</th>
+            <th>Leads</th>
+          </tr></thead>
+          <tbody id="admHistoryBody">
+            <tr><td colspan="5" class="adm-loading">carregando...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- APP -->
+<div class="w" id="appContent" style="display:none">
+
+  <header>
+    <div class="logo">L</div>
+    <div class="logo-txt">LAR<span>A</span></div>
+    <div class="badge">ProspecÃ§Ã£o B2B</div>
+    <div class="user-area">
+      <span class="user-name" id="userNameDisplay"></span>
+      <button class="btn-admin" id="btnAdmin" onclick="openAdmin()">âï¸ Admin</button>
+      <button class="btn-logout" onclick="doLogout()">Sair</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Encontre <span class="hl">leads qualificados</span><br>em segundos</h1>
+    <p>Busque empresas no Google Maps por cidade e nicho, extraia contatos e exporte planilha para seus SDRs.</p>
+  </section>
+
+  <div class="card">
+    <div class="sg">
+      <div class="fg">
+        <label>ð Cidade</label>
+        <input id="city" placeholder="Ex: SÃ£o Paulo, Santos, Curitiba..." />
+      </div>
+      <div class="fg">
+        <label>ð¯ Nicho / Segmento</label>
+        <input id="niche" placeholder="Ex: contabilidade, academia, clÃ­nica..." />
+      </div>
+      <button class="btn" id="btnSearch" onclick="startSearch()">ð Buscar</button>
+    </div>
+    <div class="api-ok">
+      <div class="dot"></div>
+      <span>Google Places API conectada â dados reais do Google Maps</span>
+    </div>
+  </div>
+
+  <div class="status-box" id="sb">
+    <div class="status-txt">
+      <div class="spinner"></div>
+      <span id="stxt">Buscando...</span>
+    </div>
+    <div class="prog-wrap"><div class="prog-bar" id="pb"></div></div>
+  </div>
+
+  <div id="empty" class="empty">
+    <div class="ei">ðºï¸</div>
+    <div class="et">Pronta para prospectar</div>
+    <div class="es">Digite cidade e nicho acima e clique em Buscar</div>
+  </div>
+
+  <div id="res" style="display:none">
+    <div class="rh">
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+        <div class="rt">Empresas encontradas</div>
+        <div class="ct" id="cnt">0</div>
+        <div class="mtag"><div class="mdot"></div> Google Maps Real</div>
+      </div>
+      <button class="bexp" onclick="exportCSV()">ð¥ Exportar CSV / Excel</button>
+    </div>
+    <div class="tw">
+      <table>
+        <thead><tr>
+          <th>#</th><th>Empresa</th><th>AvaliaÃ§Ã£o</th><th>Status</th>
+          <th>Telefone</th><th>EndereÃ§o</th><th>Categoria</th><th>Maps</th>
+        </tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+    <div class="pag" id="pgd"></div>
+  </div>
+
+  <footer><strong>LARA</strong> â ProspecÃ§Ã£o Inteligente &nbsp;Â·&nbsp; Google Places API</footer>
+</div>
+
+<!-- Firebase SDK -->
 <script type="module">
-import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import{getAuth,signInWithEmailAndPassword,createUserWithEmailAndPassword,signInWithPopup,GoogleAuthProvider,signOut,onAuthStateChanged,updateProfile}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-const firebaseConfig={apiKey:"AIzaSyCzdhnOZw0P95391IzXUZ7L-X_u-V3xofQ",authDomain:"lara-prospector.firebaseapp.com",projectId:"lara-prospector",storageBucket:"lara-prospector.firebasestorage.app",messagingSenderId:"1081384368369",appId:"1:1081384368369:web:5ba2d5f22909bc1e7bd150",measurementId:"G-E335L723GJ"};
-const app=initializeApp(firebaseConfig);const auth=getAuth(app);const googleProvider=new GoogleAuthProvider();
-function showErr(msg){document.getElementById('authErr').textContent=msg;}
-function clearErr(){document.getElementById('authErr').textContent='';}
-function setLoading(btn,loading){document.getElementById(btn).disabled=loading;document.getElementById(btn).textContent=loading?'Aguarde...':(btn==='btnLogin'?'Entrar':'Criar conta');}
-onAuthStateChanged(auth,user=>{if(user){document.getElementById('authOverlay').style.display='none';document.getElementById('appContent').style.display='block';const name=user.displayName||user.email.split('@')[0];document.getElementById('userNameDisplay').textContent='Olá, '+name;}else{document.getElementById('authOverlay').style.display='flex';document.getElementById('appContent').style.display='none';}});
-window.doLogin=async function(){clearErr();const email=document.getElementById('loginEmail').value.trim();const password=document.getElementById('loginPassword').value;if(!email||!password){showErr('Preencha e-mail e senha.');return;}setLoading('btnLogin',true);try{await signInWithEmailAndPassword(auth,email,password);}catch(e){const msgs={'auth/user-not-found':'Usuário não encontrado.','auth/wrong-password':'Senha incorreta.','auth/invalid-email':'E-mail inválido.','auth/too-many-requests':'Muitas tentativas. Tente mais tarde.','auth/invalid-credential':'E-mail ou senha incorretos.'};showErr(msgs[e.code]||'Erro ao entrar. Tente novamente.');}setLoading('btnLogin',false);};
-window.doRegister=async function(){clearErr();const name=document.getElementById('regName').value.trim();const email=document.getElementById('regEmail').value.trim();const password=document.getElementById('regPassword').value;if(!name||!email||!password){showErr('Preencha todos os campos.');return;}if(password.length<6){showErr('Senha deve ter pelo menos 6 caracteres.');return;}setLoading('btnRegister',true);try{const cred=await createUserWithEmailAndPassword(auth,email,password);await updateProfile(cred.user,{displayName:name});}catch(e){const msgs={'auth/email-already-in-use':'E-mail já cadastrado.','auth/invalid-email':'E-mail inválido.','auth/weak-password':'Senha muito fraca.'};showErr(msgs[e.code]||'Erro ao criar conta.');}setLoading('btnRegister',false);};
-window.doGoogle=async function(){clearErr();try{await signInWithPopup(auth,googleProvider);}catch(e){if(e.code!=='auth/popup-closed-by-user'){showErr('Erro ao entrar com Google.');}}};
-window.doLogout=async function(){await signOut(auth);};
-window.switchTab=function(tab){document.getElementById('formLogin').style.display=tab==='login'?'block':'none';document.getElementById('formRegister').style.display=tab==='register'?'block':'none';document.getElementById('tabLogin').classList.toggle('act',tab==='login');document.getElementById('tabRegister').classList.toggle('act',tab==='register');clearErr();};
-['loginEmail','loginPassword'].forEach(id=>{document.getElementById(id).addEventListener('keydown',e=>{if(e.key==='Enter')window.doLogin();});});
-['regName','regEmail','regPassword'].forEach(id=>{document.getElementById(id).addEventListener('keydown',e=>{if(e.key==='Enter')window.doRegister();});});
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, updateProfile } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+  import { getFirestore, collection, addDoc, getDocs, query, orderBy, limit, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+  const ADMIN_EMAIL = 'thomas98macedo@gmail.com';
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCzdhnOZw0P95391IzXUZ7L-X_u-V3xofQ",
+    authDomain: "lara-prospector.firebaseapp.com",
+    projectId: "lara-prospector",
+    storageBucket: "lara-prospector.firebasestorage.app",
+    messagingSenderId: "1081384368369",
+    appId: "1:1081384368369:web:5ba2d5f22909bc1e7bd150",
+    measurementId: "G-E335L723GJ"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+  const googleProvider = new GoogleAuthProvider();
+
+  // Expose db globally for use in search
+  window._db = db;
+  window._addDoc = addDoc;
+  window._collection = collection;
+  window._serverTimestamp = serverTimestamp;
+  window._getDocs = getDocs;
+  window._query = query;
+  window._orderBy = orderBy;
+  window._limit = limit;
+
+  function showErr(msg){ document.getElementById('authErr').textContent = msg; }
+  function clearErr(){ document.getElementById('authErr').textContent = ''; }
+
+  function setLoading(btn, loading){
+    document.getElementById(btn).disabled = loading;
+    document.getElementById(btn).textContent = loading ? 'Aguarde...' : (btn === 'btnLogin' ? 'Entrar' : 'Criar conta');
+  }
+
+  onAuthStateChanged(auth, user => {
+    if(user){
+      document.getElementById('authOverlay').style.display = 'none';
+      document.getElementById('appContent').style.display = 'block';
+      const name = user.displayName || user.email.split('@')[0];
+      document.getElementById('userNameDisplay').textContent = 'OlÃ¡, ' + name;
+      window._currentUser = user;
+
+      // Show admin button only for admin
+      const btnAdmin = document.getElementById('btnAdmin');
+      if(user.email === ADMIN_EMAIL){
+        btnAdmin.style.display = 'flex';
+      } else {
+        btnAdmin.style.display = 'none';
+      }
+    } else {
+      document.getElementById('authOverlay').style.display = 'flex';
+      document.getElementById('appContent').style.display = 'none';
+      document.getElementById('adminOverlay').classList.remove('open');
+      window._currentUser = null;
+    }
+  });
+
+  window.doLogin = async function(){
+    clearErr();
+    const email = document.getElementById('loginEmail').value.trim();
+    const password = document.getElementById('loginPassword').value;
+    if(!email || !password){ showErr('Preencha e-mail e senha.'); return; }
+    setLoading('btnLogin', true);
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+    } catch(e) {
+      const msgs = {
+        'auth/user-not-found': 'UsuÃ¡rio nÃ£o encontrado.',
+        'auth/wrong-password': 'Senha incorreta.',
+        'auth/invalid-email': 'E-mail invÃ¡lido.',
+        'auth/too-many-requests': 'Muitas tentativas. Tente mais tarde.',
+        'auth/invalid-credential': 'E-mail ou senha incorretos.'
+      };
+      showErr(msgs[e.code] || 'Erro ao entrar. Tente novamente.');
+    }
+    setLoading('btnLogin', false);
+  };
+
+  window.doRegister = async function(){
+    clearErr();
+    const name = document.getElementById('regName').value.trim();
+    const email = document.getElementById('regEmail').value.trim();
+    const password = document.getElementById('regPassword').value;
+    if(!name || !email || !password){ showErr('Preencha todos os campos.'); return; }
+    if(password.length < 6){ showErr('Senha deve ter pelo menos 6 caracteres.'); return; }
+    setLoading('btnRegister', true);
+    try {
+      const cred = await createUserWithEmailAndPassword(auth, email, password);
+      await updateProfile(cred.user, { displayName: name });
+    } catch(e) {
+      const msgs = {
+        'auth/email-already-in-use': 'E-mail jÃ¡ cadastrado.',
+        'auth/invalid-email': 'E-mail invÃ¡lido.',
+        'auth/weak-password': 'Senha muito fraca.'
+      };
+      showErr(msgs[e.code] || 'Erro ao criar conta.');
+    }
+    setLoading('btnRegister', false);
+  };
+
+  window.doGoogle = async function(){
+    clearErr();
+    try {
+      await signInWithPopup(auth, googleProvider);
+    } catch(e) {
+      if(e.code !== 'auth/popup-closed-by-user'){
+        showErr('Erro ao entrar com Google.');
+      }
+    }
+  };
+
+  window.doLogout = async function(){
+    await signOut(auth);
+  };
+
+  window.switchTab = function(tab){
+    document.getElementById('formLogin').style.display = tab === 'login' ? 'block' : 'none';
+    document.getElementById('formRegister').style.display = tab === 'register' ? 'block' : 'none';
+    document.getElementById('tabLogin').classList.toggle('act', tab === 'login');
+    document.getElementById('tabRegister').classList.toggle('act', tab === 'register');
+    clearErr();
+  };
+
+  // Admin panel
+  window.openAdmin = function(){
+    if(!window._currentUser || window._currentUser.email !== ADMIN_EMAIL) return;
+    document.getElementById('adminOverlay').classList.add('open');
+    loadAdminData();
+  };
+
+  window.closeAdmin = function(){
+    document.getElementById('adminOverlay').classList.remove('open');
+  };
+
+  window.loadAdminData = async function(){
+    if(!window._currentUser || window._currentUser.email !== ADMIN_EMAIL) return;
+    try {
+      const db = window._db;
+      const q = window._query(window._collection(db,'searches'), window._orderBy('ts','desc'), window._limit(50));
+      const snap = await window._getDocs(q);
+      const docs = [];
+      snap.forEach(d => docs.push(d.data()));
+
+      // KPIs
+      const totalSearches = docs.length;
+      const totalLeads = docs.reduce((s,d) => s + (d.leads||0), 0);
+      const uniqueUsers = new Set(docs.map(d => d.email)).size;
+      const avgLeads = totalSearches ? Math.round(totalLeads/totalSearches) : 0;
+
+      document.getElementById('admTotalSearches').textContent = totalSearches;
+      document.getElementById('admTotalLeads').textContent = totalLeads.toLocaleString('pt-BR');
+      document.getElementById('admTotalUsers').textContent = uniqueUsers;
+      document.getElementById('admAvgLeads').textContent = avgLeads;
+      document.getElementById('admSearchesSub').textContent = 'Ãºltimas 50 registradas';
+      document.getElementById('admLeadsSub').textContent = 'empresas mapeadas';
+      document.getElementById('admUsersSub').textContent = 'e-mails distintos';
+
+      // Top niches
+      const nicheCount = {};
+      docs.forEach(d => { if(d.niche) nicheCount[d.niche] = (nicheCount[d.niche]||0)+1; });
+      const topNiches = Object.entries(nicheCount).sort((a,b)=>b[1]-a[1]).slice(0,6);
+      const nichesEl = document.getElementById('admTopNiches');
+      if(topNiches.length){
+        nichesEl.innerHTML = topNiches.map(([n,c]) =>
+          `<div class="adm-top-item"><span class="adm-top-item-label">${n}</span><span class="adm-top-item-count">${c}x</span></div>`
+        ).join('');
+      } else {
+        nichesEl.innerHTML = '<div class="adm-empty">Nenhuma busca ainda</div>';
+      }
+
+      // Top cities
+      const cityCount = {};
+      docs.forEach(d => { if(d.city) cityCount[d.city] = (cityCount[d.city]||0)+1; });
+      const topCities = Object.entries(cityCount).sort((a,b)=>b[1]-a[1]).slice(0,6);
+      const citiesEl = document.getElementById('admTopCities');
+      if(topCities.length){
+        citiesEl.innerHTML = topCities.map(([c,n]) =>
+          `<div class="adm-top-item"><span class="adm-top-item-label">${c}</span><span class="adm-top-item-count">${n}x</span></div>`
+        ).join('');
+      } else {
+        citiesEl.innerHTML = '<div class="adm-empty">Nenhuma busca ainda</div>';
+      }
+
+      // History table
+      const tbody = document.getElementById('admHistoryBody');
+      if(docs.length){
+        tbody.innerHTML = docs.map(d => {
+          const dt = d.ts?.toDate ? d.ts.toDate() : new Date();
+          const dtStr = dt.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric'}) + ' ' +
+                        dt.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+          return `<tr>
+            <td>${dtStr}</td>
+            <td class="hi">${d.email||'â'}</td>
+            <td>${d.city||'â'}</td>
+            <td>${d.niche||'â'}</td>
+            <td><span class="adm-pill">${d.leads||0} leads</span></td>
+          </tr>`;
+        }).join('');
+      } else {
+        tbody.innerHTML = '<tr><td colspan="5" class="adm-empty">Nenhuma busca registrada ainda</td></tr>';
+      }
+    } catch(e) {
+      console.error('Admin load error:', e);
+      document.getElementById('admHistoryBody').innerHTML =
+        '<tr><td colspan="5" class="adm-empty" style="color:#ff6b6b">Erro ao carregar dados. Verifique as regras do Firestore.</td></tr>';
+    }
+  };
+
+  ['loginEmail','loginPassword'].forEach(id => {
+    document.getElementById(id).addEventListener('keydown', e => { if(e.key==='Enter') window.doLogin(); });
+  });
+  ['regName','regEmail','regPassword'].forEach(id => {
+    document.getElementById(id).addEventListener('keydown', e => { if(e.key==='Enter') window.doRegister(); });
+  });
 </script>
+
 <script>
-let leads=[],page=1;const PER=20;
-function st(msg,pct,show=true){document.getElementById('stxt').textContent=msg;document.getElementById('pb').style.width=pct+'%';document.getElementById('sb').classList.toggle('on',show);}
-async function apiFetch(path){const r=await fetch(path);if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}
-async function startSearch(){const city=document.getElementById('city').value.trim();const niche=document.getElementById('niche').value.trim();if(!city||!niche){alert('Preencha cidade e nicho.');return;}document.getElementById('btnSearch').disabled=true;document.getElementById('empty').style.display='none';document.getElementById('res').style.display='none';leads=[];try{await fetchLeads(city,niche);renderTable(1);}catch(e){alert('Erro: '+e.message);}st('',0,false);document.getElementById('btnSearch').disabled=false;}
-async function fetchLeads(city,niche){const q=encodeURIComponent(niche+' em '+city+' Brasil');let token='',pg=0;do{st('🔍 Buscando no Google Maps... ('+leads.length+' encontradas)',Math.round(pg/3*50));const url=token?'/api/search?pagetoken='+encodeURIComponent(token):'/api/search?query='+q;const d=await apiFetch(url);if(d.status==='REQUEST_DENIED')throw new Error('API Key inválida: '+d.error_message);if(d.status==='ZERO_RESULTS')break;if(d.status==='INVALID_REQUEST')break;if(!['OK','ZERO_RESULTS'].includes(d.status))throw new Error('Google: '+d.status);for(const p of(d.results||[])){const open=p.opening_hours?.open_now;leads.push({id:p.place_id,name:p.name,rating:p.rating||0,reviews:p.user_ratings_total||0,open:open===true?'Aberto':open===false?'Fechado':'—',phone:'…',address:(p.formatted_address||p.vicinity||'—').replace(/,s*Bras(il|ilia)?/,''),cat:(p.types||[]).filter(t=>!['point_of_interest','establishment','geocode'].includes(t)).slice(0,2).map(t=>t.replace(/_/g,' ')).join(', ')||niche,url:'https://www.google.com/maps/place/?q=place_id:'+p.place_id,site:''});}token=d.next_page_token||'';pg++;if(token&&pg<3)await new Promise(r=>setTimeout(r,2200));}while(token&&pg<3);leads.sort((a,b)=>b.rating-a.rating||b.reviews-a.reviews);for(let i=0;i<leads.length;i+=5){const pct=50+Math.round(((i+5)/leads.length)*50);st('📞 Buscando telefones... ('+Math.min(i+5,leads.length)+'/'+leads.length+')',Math.min(pct,97));await Promise.all(leads.slice(i,i+5).map(async l=>{try{const d=await apiFetch('/api/details?place_id='+l.id);l.phone=d.result?.formatted_phone_number||'—';l.site=d.result?.website||'';}catch{l.phone='—';}}));}}
-function star(r){return'★'.repeat(Math.round(r))+'☆'.repeat(5-Math.round(r));}
-function renderTable(p){page=p;const tbody=document.getElementById('tbody');tbody.innerHTML='';const start=(p-1)*PER;leads.slice(start,start+PER).forEach((l,i)=>{const gi=start+i+1;const sc=l.open==='Aberto'?'open':l.open==='Fechado'?'closed':'unk';const tr=document.createElement('tr');tr.style.animationDelay=i*.025+'s';tr.innerHTML='<td style="color:var(--mt);font-size:12px">'+gi+'</td><td class="nm">'+l.name+'</td><td>'+(l.rating?'<div class="stars"><span class="sv">'+l.rating.toFixed(1)+'</span><span style="color:#f5c542;font-size:11px">'+star(l.rating)+'</span><span class="sc">('+l.reviews.toLocaleString('pt-BR')+')</span></div>':'<span style="color:var(--mt)">—</span>')+'</td><td><span class="ts '+sc+'">'+l.open+'</span></td><td>'+(l.phone&&l.phone!=='—'?'<a href="tel:'+l.phone+'" class="pl">'+l.phone+'</a>':'<span style="color:var(--mt)">—</span>')+'</td><td style="font-size:12px">'+l.address+'</td><td style="font-size:11px;color:var(--mt)">'+l.cat+'</td><td><a href="'+l.url+'" target="_blank" class="ml">📍 Ver</a></td>';tbody.appendChild(tr);});document.getElementById('cnt').textContent=leads.length+' empresas';document.getElementById('res').style.display='block';renderPag();window.scrollTo({top:0,behavior:'smooth'});}
-function renderPag(){const tot=Math.ceil(leads.length/PER);const pg=document.getElementById('pgd');pg.innerHTML='';if(tot<=1)return;const mk=(lbl,p,dis)=>{const b=document.createElement('button');b.className='pg'+(p===page?' act':'');b.textContent=lbl;b.disabled=dis;b.onclick=()=>!dis&&renderTable(p);pg.appendChild(b);};mk('← Anterior',page-1,page===1);for(let i=1;i<=tot;i++)mk(i,i,false);mk('Próxima →',page+1,page===tot);}
-function exportCSV(){if(!leads.length){alert('Sem dados.');return;}const h=['#','Empresa','Avaliação','Reviews','Status','Telefone','Endereço','Categoria','Maps','Site'];const rows=leads.map((l,i)=>[i+1,'"'+l.name.replace(/"/g,'""')+'"',l.rating||'',l.reviews||'',l.open,l.phone,'"'+l.address.replace(/"/g,'""')+'"','"'+l.cat+'"',l.url,l.site]);const csv=[h.join(','),...rows.map(r=>r.join(','))].join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8;'}));a.download='leads_'+document.getElementById('niche').value.replace(/\s+/g,'_')+'_'+document.getElementById('city').value.replace(/\s+/g,'_')+'.csv';a.click();}
+let leads=[], page=1;
+const PER=20;
+
+function st(msg,pct,show=true){
+  document.getElementById('stxt').textContent=msg;
+  document.getElementById('pb').style.width=pct+'%';
+  document.getElementById('sb').classList.toggle('on',show);
+}
+
+async function apiFetch(path){
+  const r=await fetch(path);
+  if(!r.ok) throw new Error('HTTP '+r.status);
+  return r.json();
+}
+
+async function startSearch(){
+  const city=document.getElementById('city').value.trim();
+  const niche=document.getElementById('niche').value.trim();
+  if(!city||!niche){alert('Preencha cidade e nicho.');return;}
+  document.getElementById('btnSearch').disabled=true;
+  document.getElementById('empty').style.display='none';
+  document.getElementById('res').style.display='none';
+  leads=[];
+  try{
+    await fetchLeads(city,niche);
+    renderTable(1);
+    // Log search to Firestore
+    try{
+      const user=window._currentUser;
+      if(user && window._db){
+        await window._addDoc(window._collection(window._db,'searches'),{
+          uid: user.uid,
+          email: user.email,
+          name: user.displayName||'',
+          city: city,
+          niche: niche,
+          leads: leads.length,
+          ts: window._serverTimestamp()
+        });
+      }
+    }catch(e){ console.warn('Log search failed:',e); }
+  }catch(e){
+    alert('Erro: '+e.message);
+  }
+  st('',0,false);
+  document.getElementById('btnSearch').disabled=false;
+}
+
+async function fetchLeads(city,niche){
+  const q=encodeURIComponent(niche+' em '+city+' Brasil');
+  let token='',pg=0;
+  do{
+    st('ð Buscando no Google Maps... ('+leads.length+' encontradas)',Math.round(pg/3*50));
+    const url=token?'/api/search?pagetoken='+encodeURIComponent(token):'/api/search?query='+q;
+    const d=await apiFetch(url);
+    if(d.status==='REQUEST_DENIED') throw new Error('API Key invÃ¡lida: '+d.error_message);
+    if(d.status==='ZERO_RESULTS') break;
+    if(d.status==='INVALID_REQUEST') break;
+    if(!['OK','ZERO_RESULTS'].includes(d.status)) throw new Error('Google: '+d.status);
+    for(const p of (d.results||[])){
+      const open=p.opening_hours?.open_now;
+      leads.push({
+        id:p.place_id,name:p.name,
+        rating:p.rating||0,reviews:p.user_ratings_total||0,
+        open:open===true?'Aberto':open===false?'Fechado':'â',
+        phone:'â¦',
+        address:(p.formatted_address||p.vicinity||'â').replace(/, Bras(il|ilia)?/,''),
+        cat:(p.types||[]).filter(t=>!['point_of_interest','establishment','geocode'].includes(t)).slice(0,2).map(t=>t.replace(/_/g,' ')).join(', ')||niche,
+        url:'https://www.google.com/maps/place/?q=place_id:'+p.place_id,
+        site:''
+      });
+    }
+    token=d.next_page_token||'';pg++;
+    if(token&&pg<3) await new Promise(r=>setTimeout(r,2200));
+  }while(token&&pg<3);
+
+  leads.sort((a,b)=>b.rating-a.rating||b.reviews-a.reviews);
+
+  for(let i=0;i<leads.length;i+=5){
+    const pct=50+Math.round(((i+5)/leads.length)*50);
+    st('ð Buscando telefones... ('+Math.min(i+5,leads.length)+'/'+leads.length+')',Math.min(pct,97));
+    await Promise.all(leads.slice(i,i+5).map(async l=>{
+      try{
+        const d=await apiFetch('/api/details?place_id='+l.id);
+        l.phone=d.result?.formatted_phone_number||'â';
+        l.site=d.result?.website||'';
+      }catch{l.phone='â';}
+    }));
+  }
+}
+
+function star(r){return'â'.repeat(Math.round(r))+'â'.repeat(5-Math.round(r));}
+
+function renderTable(p){
+  page=p;
+  const tbody=document.getElementById('tbody');
+  tbody.innerHTML='';
+  const start=(p-1)*PER;
+  leads.slice(start,start+PER).forEach((l,i)=>{
+    const gi=start+i+1;
+    const sc=l.open==='Aberto'?'open':l.open==='Fechado'?'closed':'unk';
+    const tr=document.createElement('tr');
+    tr.style.animationDelay=i*.025+'s';
+    tr.innerHTML=`
+      <td style="color:var(--mt);font-size:12px">${gi}</td>
+      <td class="nm">${l.name}</td>
+      <td>${l.rating?`<div class="stars"><span class="sv">${l.rating.toFixed(1)}</span><span style="color:#f5c542;font-size:11px">${star(l.rating)}</span><span class="sc">(${l.reviews.toLocaleString('pt-BR')})</span></div>`:'<span style="color:var(--mt)">â</span>'}</td>
+      <td><span class="ts ${sc}">${l.open}</span></td>
+      <td>${l.phone&&l.phone!=='â'?`<a href="tel:${l.phone}" class="pl">${l.phone}</a>`:'<span style="color:var(--mt)">â</span>'}</td>
+      <td style="font-size:12px">${l.address}</td>
+      <td style="font-size:11px;color:var(--mt)">${l.cat}</td>
+      <td><a href="${l.url}" target="_blank" class="ml">ð Ver</a></td>`;
+    tbody.appendChild(tr);
+  });
+  document.getElementById('cnt').textContent=leads.length+' empresas';
+  document.getElementById('res').style.display='block';
+  renderPag();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function renderPag(){
+  const tot=Math.ceil(leads.length/PER);
+  const pg=document.getElementById('pgd'); pg.innerHTML='';
+  if(tot<=1)return;
+  const mk=(lbl,p,dis)=>{const b=document.createElement('button');b.className='pg'+(p===page?' act':'');b.textContent=lbl;b.disabled=dis;b.onclick=()=>!dis&&renderTable(p);pg.appendChild(b);};
+  mk('â Anterior',page-1,page===1);
+  for(let i=1;i<=tot;i++)mk(i,i,false);
+  mk('PrÃ³xima â',page+1,page===tot);
+}
+
+function exportCSV(){
+  if(!leads.length){alert('Sem dados.');return;}
+  const h=['#','Empresa','AvaliaÃ§Ã£o','Reviews','Status','Telefone','EndereÃ§o','Categoria','Maps','Site'];
+  const rows=leads.map((l,i)=>[i+1,`"${l.name.replace(/"/g,'""')}"`,l.rating||'',l.reviews||'',l.open,l.phone,`"${l.address.replace(/"/g,'""')}"`,`"${l.cat}"`,l.url,l.site]);
+  const csv=[h.join(','),...rows.map(r=>r.join(','))].join('\n');
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8;'}));
+  a.download=`leads_${document.getElementById('niche').value.replace(/\s+/g,'_')}_${document.getElementById('city').value.replace(/\s+/g,'_')}.csv`;
+  a.click();
+}
+
 ['city','niche'].forEach(id=>document.getElementById(id).addEventListener('keydown',e=>{if(e.key==='Enter')startSearch();}));
 </script>
-</body></html>
+</body>
+</html>
