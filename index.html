@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LARA â ProspecÃ§Ã£o B2B</title>
+<title>LARA &#8212; Prospec&#231;&#227;o B2B</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -18,7 +18,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;
   background-size:40px 40px}
 .w{max-width:1100px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
 
-/* ââ AUTH OVERLAY ââ */
+/* &#9472;&#9472; AUTH OVERLAY &#9472;&#9472; */
 #authOverlay{position:fixed;inset:0;background:rgba(10,11,15,.97);z-index:100;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(8px)}
 .auth-box{background:var(--s1);border:1px solid var(--bd);border-radius:24px;padding:40px;width:100%;max-width:420px;position:relative;overflow:hidden}
 .auth-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gr),var(--bl),transparent)}
@@ -46,7 +46,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;
 .auth-google svg{width:18px;height:18px;flex-shrink:0}
 .auth-err{font-size:12px;color:#ff6b6b;text-align:center;margin-top:10px;min-height:18px}
 
-/* ââ HEADER ââ */
+/* &#9472;&#9472; HEADER &#9472;&#9472; */
 header{padding:28px 0 0;display:flex;align-items:center;gap:14px}
 .logo{width:44px;height:44px;background:linear-gradient(135deg,var(--gr),var(--bl));border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:18px;color:#000;flex-shrink:0}
 .logo-txt{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;letter-spacing:.05em}
@@ -59,7 +59,7 @@ header{padding:28px 0 0;display:flex;align-items:center;gap:14px}
 .btn-admin{background:linear-gradient(135deg,rgba(0,229,160,.15),rgba(0,102,255,.15));border:1px solid rgba(0,229,160,.4);color:var(--gr);border-radius:8px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;transition:all .2s;font-family:'Syne',sans-serif;display:none;align-items:center;gap:6px}
 .btn-admin:hover{background:linear-gradient(135deg,rgba(0,229,160,.25),rgba(0,102,255,.25));box-shadow:0 0 16px rgba(0,229,160,.2)}
 
-/* ââ APP ââ */
+/* &#9472;&#9472; APP &#9472;&#9472; */
 .hero{padding:46px 0 28px}
 .hero h1{font-family:'Syne',sans-serif;font-size:clamp(26px,4.5vw,48px);font-weight:800;line-height:1.1;letter-spacing:-.02em;margin-bottom:12px}
 .hl{background:linear-gradient(90deg,var(--gr),var(--bl));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -124,7 +124,7 @@ td.nm{font-weight:600;color:var(--tx);font-size:14px;min-width:150px}
 footer{border-top:1px solid var(--bd);padding:22px 0;text-align:center;font-size:12px;color:var(--mt)}
 footer strong{color:var(--gr)}
 
-/* ââ ADMIN PANEL ââ */
+/* &#9472;&#9472; ADMIN PANEL &#9472;&#9472; */
 #adminOverlay{position:fixed;inset:0;background:rgba(10,11,15,.97);z-index:200;display:none;flex-direction:column;backdrop-filter:blur(8px);overflow-y:auto}
 #adminOverlay.open{display:flex}
 .adm-header{background:var(--s1);border-bottom:1px solid var(--bd);padding:20px 28px;display:flex;align-items:center;gap:16px;position:sticky;top:0;z-index:10}
@@ -174,8 +174,8 @@ footer strong{color:var(--gr)}
       <div class="auth-logo-icon">L</div>
       <div class="auth-logo-txt">LAR<span>A</span></div>
     </div>
-    <div class="auth-title">Bem-vindo Ã  LARA</div>
-    <div class="auth-sub">ProspecÃ§Ã£o B2B inteligente com dados reais do Google Maps</div>
+    <div class="auth-title">Bem-vindo &#224; LARA</div>
+    <div class="auth-sub">Prospec&#231;&#227;o B2B inteligente com dados reais do Google Maps</div>
 
     <div class="auth-tabs">
       <button class="auth-tab act" id="tabLogin" onclick="switchTab('login')">Entrar</button>
@@ -189,7 +189,7 @@ footer strong{color:var(--gr)}
       </div>
       <div class="auth-fg">
         <label>Senha</label>
-        <input class="auth-input" id="loginPassword" type="password" placeholder="â¢â¢â¢â¢â¢â¢â¢â¢" />
+        <input class="auth-input" id="loginPassword" type="password" placeholder="&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;" />
       </div>
       <button class="auth-btn" id="btnLogin" onclick="doLogin()">Entrar</button>
     </div>
@@ -205,7 +205,7 @@ footer strong{color:var(--gr)}
       </div>
       <div class="auth-fg">
         <label>Senha</label>
-        <input class="auth-input" id="regPassword" type="password" placeholder="mÃ­nimo 6 caracteres" />
+        <input class="auth-input" id="regPassword" type="password" placeholder="m&#237;nimo 6 caracteres" />
       </div>
       <button class="auth-btn" id="btnRegister" onclick="doRegister()">Criar conta</button>
     </div>
@@ -224,36 +224,36 @@ footer strong{color:var(--gr)}
 <!-- ADMIN PANEL OVERLAY -->
 <div id="adminOverlay">
   <div class="adm-header">
-    <div class="adm-header-icon">âï¸</div>
+    <div class="adm-header-icon">&#9881;&#65039;</div>
     <div>
       <div class="adm-title">Painel <span>Admin</span></div>
-      <div class="adm-subtitle">thomas98macedo@gmail.com â acesso exclusivo</div>
+      <div class="adm-subtitle"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="25514d4a4844561c1d48444640414a654248444c490b464a48">[email&#160;protected]</a> &#8212; acesso exclusivo</div>
     </div>
-    <button class="adm-refresh" onclick="loadAdminData()">â» Atualizar</button>
-    <button class="adm-close" onclick="closeAdmin()">â Fechar</button>
+    <button class="adm-refresh" onclick="loadAdminData()">&#8635; Atualizar</button>
+    <button class="adm-close" onclick="closeAdmin()">&#10005; Fechar</button>
   </div>
 
   <div class="adm-body">
     <!-- KPIs -->
     <div class="adm-kpis">
       <div class="adm-kpi">
-        <div class="adm-kpi-val" id="admTotalSearches">â</div>
+        <div class="adm-kpi-val" id="admTotalSearches">&#8212;</div>
         <div class="adm-kpi-lbl">Buscas realizadas</div>
         <div class="adm-kpi-sub" id="admSearchesSub">carregando...</div>
       </div>
       <div class="adm-kpi">
-        <div class="adm-kpi-val" id="admTotalLeads">â</div>
+        <div class="adm-kpi-val" id="admTotalLeads">&#8212;</div>
         <div class="adm-kpi-lbl">Total de leads gerados</div>
         <div class="adm-kpi-sub" id="admLeadsSub">carregando...</div>
       </div>
       <div class="adm-kpi">
-        <div class="adm-kpi-val" id="admTotalUsers">â</div>
-        <div class="adm-kpi-lbl">UsuÃ¡rios Ãºnicos</div>
+        <div class="adm-kpi-val" id="admTotalUsers">&#8212;</div>
+        <div class="adm-kpi-lbl">Usu&#225;rios &#250;nicos</div>
         <div class="adm-kpi-sub" id="admUsersSub">carregando...</div>
       </div>
       <div class="adm-kpi">
-        <div class="adm-kpi-val" id="admAvgLeads">â</div>
-        <div class="adm-kpi-lbl">MÃ©dia leads/busca</div>
+        <div class="adm-kpi-val" id="admAvgLeads">&#8212;</div>
+        <div class="adm-kpi-lbl">M&#233;dia leads/busca</div>
         <div class="adm-kpi-sub">por pesquisa realizada</div>
       </div>
     </div>
@@ -261,23 +261,23 @@ footer strong{color:var(--gr)}
     <!-- Top niches & cities -->
     <div class="adm-top-grid">
       <div>
-        <div class="adm-section-title">ð¯ Nichos mais buscados</div>
+        <div class="adm-section-title">&#127919; Nichos mais buscados</div>
         <div id="admTopNiches" class="adm-loading">carregando...</div>
       </div>
       <div>
-        <div class="adm-section-title">ð Cidades mais buscadas</div>
+        <div class="adm-section-title">&#127961; Cidades mais buscadas</div>
         <div id="admTopCities" class="adm-loading">carregando...</div>
       </div>
     </div>
 
     <!-- Search history -->
     <div class="adm-section">
-      <div class="adm-section-title">ð HistÃ³rico de buscas (Ãºltimas 50)</div>
+      <div class="adm-section-title">&#128203; Hist&#243;rico de buscas (&#250;ltimas 50)</div>
       <div class="adm-table-wrap">
         <table class="adm-table">
           <thead><tr>
             <th>Data/Hora</th>
-            <th>UsuÃ¡rio</th>
+            <th>Usu&#225;rio</th>
             <th>Cidade</th>
             <th>Nicho</th>
             <th>Leads</th>
@@ -297,10 +297,10 @@ footer strong{color:var(--gr)}
   <header>
     <div class="logo">L</div>
     <div class="logo-txt">LAR<span>A</span></div>
-    <div class="badge">ProspecÃ§Ã£o B2B</div>
+    <div class="badge">Prospec&#231;&#227;o B2B</div>
     <div class="user-area">
       <span class="user-name" id="userNameDisplay"></span>
-      <button class="btn-admin" id="btnAdmin" onclick="openAdmin()">âï¸ Admin</button>
+      <button class="btn-admin" id="btnAdmin" onclick="openAdmin()">&#9881;&#65039; Admin</button>
       <button class="btn-logout" onclick="doLogout()">Sair</button>
     </div>
   </header>
@@ -313,18 +313,18 @@ footer strong{color:var(--gr)}
   <div class="card">
     <div class="sg">
       <div class="fg">
-        <label>ð Cidade</label>
-        <input id="city" placeholder="Ex: SÃ£o Paulo, Santos, Curitiba..." />
+        <label>&#127961; Cidade</label>
+        <input id="city" placeholder="Ex: S&#227;o Paulo, Santos, Curitiba..." />
       </div>
       <div class="fg">
-        <label>ð¯ Nicho / Segmento</label>
-        <input id="niche" placeholder="Ex: contabilidade, academia, clÃ­nica..." />
+        <label>&#127919; Nicho / Segmento</label>
+        <input id="niche" placeholder="Ex: contabilidade, academia, cl&#237;nica..." />
       </div>
-      <button class="btn" id="btnSearch" onclick="startSearch()">ð Buscar</button>
+      <button class="btn" id="btnSearch" onclick="startSearch()">&#128269; Buscar</button>
     </div>
     <div class="api-ok">
       <div class="dot"></div>
-      <span>Google Places API conectada â dados reais do Google Maps</span>
+      <span>Google Places API conectada &#8212; dados reais do Google Maps</span>
     </div>
   </div>
 
@@ -337,7 +337,7 @@ footer strong{color:var(--gr)}
   </div>
 
   <div id="empty" class="empty">
-    <div class="ei">ðºï¸</div>
+    <div class="ei">&#128506;&#65039;</div>
     <div class="et">Pronta para prospectar</div>
     <div class="es">Digite cidade e nicho acima e clique em Buscar</div>
   </div>
@@ -349,13 +349,13 @@ footer strong{color:var(--gr)}
         <div class="ct" id="cnt">0</div>
         <div class="mtag"><div class="mdot"></div> Google Maps Real</div>
       </div>
-      <button class="bexp" onclick="exportCSV()">ð¥ Exportar CSV / Excel</button>
+      <button class="bexp" onclick="exportCSV()">&#128229; Exportar CSV / Excel</button>
     </div>
     <div class="tw">
       <table>
         <thead><tr>
-          <th>#</th><th>Empresa</th><th>AvaliaÃ§Ã£o</th><th>Status</th>
-          <th>Telefone</th><th>EndereÃ§o</th><th>Categoria</th><th>Maps</th>
+          <th>#</th><th>Empresa</th><th>Avalia&#231;&#227;o</th><th>Status</th>
+          <th>Telefone</th><th>Endere&#231;o</th><th>Categoria</th><th>Maps</th>
         </tr></thead>
         <tbody id="tbody"></tbody>
       </table>
@@ -363,11 +363,11 @@ footer strong{color:var(--gr)}
     <div class="pag" id="pgd"></div>
   </div>
 
-  <footer><strong>LARA</strong> â ProspecÃ§Ã£o Inteligente &nbsp;Â·&nbsp; Google Places API</footer>
+  <footer><strong>LARA</strong> &#8212; Prospec&#231;&#227;o Inteligente &nbsp;&#183;&nbsp; Google Places API</footer>
 </div>
 
 <!-- Firebase SDK -->
-<script type="module">
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
   import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, updateProfile } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
   import { getFirestore, collection, addDoc, getDocs, query, orderBy, limit, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
@@ -412,7 +412,7 @@ footer strong{color:var(--gr)}
       document.getElementById('authOverlay').style.display = 'none';
       document.getElementById('appContent').style.display = 'block';
       const name = user.displayName || user.email.split('@')[0];
-      document.getElementById('userNameDisplay').textContent = 'OlÃ¡, ' + name;
+      document.getElementById('userNameDisplay').textContent = 'Ol&#225;, ' + name;
       window._currentUser = user;
 
       // Show admin button only for admin
@@ -440,9 +440,9 @@ footer strong{color:var(--gr)}
       await signInWithEmailAndPassword(auth, email, password);
     } catch(e) {
       const msgs = {
-        'auth/user-not-found': 'UsuÃ¡rio nÃ£o encontrado.',
+        'auth/user-not-found': 'Usu&#225;rio n&#227;o encontrado.',
         'auth/wrong-password': 'Senha incorreta.',
-        'auth/invalid-email': 'E-mail invÃ¡lido.',
+        'auth/invalid-email': 'E-mail inv&#225;lido.',
         'auth/too-many-requests': 'Muitas tentativas. Tente mais tarde.',
         'auth/invalid-credential': 'E-mail ou senha incorretos.'
       };
@@ -464,8 +464,8 @@ footer strong{color:var(--gr)}
       await updateProfile(cred.user, { displayName: name });
     } catch(e) {
       const msgs = {
-        'auth/email-already-in-use': 'E-mail jÃ¡ cadastrado.',
-        'auth/invalid-email': 'E-mail invÃ¡lido.',
+        'auth/email-already-in-use': 'E-mail j&#225; cadastrado.',
+        'auth/invalid-email': 'E-mail inv&#225;lido.',
         'auth/weak-password': 'Senha muito fraca.'
       };
       showErr(msgs[e.code] || 'Erro ao criar conta.');
@@ -526,7 +526,7 @@ footer strong{color:var(--gr)}
       document.getElementById('admTotalLeads').textContent = totalLeads.toLocaleString('pt-BR');
       document.getElementById('admTotalUsers').textContent = uniqueUsers;
       document.getElementById('admAvgLeads').textContent = avgLeads;
-      document.getElementById('admSearchesSub').textContent = 'Ãºltimas 50 registradas';
+      document.getElementById('admSearchesSub').textContent = '&#250;ltimas 50 registradas';
       document.getElementById('admLeadsSub').textContent = 'empresas mapeadas';
       document.getElementById('admUsersSub').textContent = 'e-mails distintos';
 
@@ -565,9 +565,9 @@ footer strong{color:var(--gr)}
                         dt.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
           return `<tr>
             <td>${dtStr}</td>
-            <td class="hi">${d.email||'â'}</td>
-            <td>${d.city||'â'}</td>
-            <td>${d.niche||'â'}</td>
+            <td class="hi">${d.email||'&#8212;'}</td>
+            <td>${d.city||'&#8212;'}</td>
+            <td>${d.niche||'&#8212;'}</td>
             <td><span class="adm-pill">${d.leads||0} leads</span></td>
           </tr>`;
         }).join('');
@@ -642,10 +642,10 @@ async function fetchLeads(city,niche){
   const q=encodeURIComponent(niche+' em '+city+' Brasil');
   let token='',pg=0;
   do{
-    st('ð Buscando no Google Maps... ('+leads.length+' encontradas)',Math.round(pg/3*50));
+    st('&#128269; Buscando no Google Maps... ('+leads.length+' encontradas)',Math.round(pg/3*50));
     const url=token?'/api/search?pagetoken='+encodeURIComponent(token):'/api/search?query='+q;
     const d=await apiFetch(url);
-    if(d.status==='REQUEST_DENIED') throw new Error('API Key invÃ¡lida: '+d.error_message);
+    if(d.status==='REQUEST_DENIED') throw new Error('API Key inv&#225;lida: '+d.error_message);
     if(d.status==='ZERO_RESULTS') break;
     if(d.status==='INVALID_REQUEST') break;
     if(!['OK','ZERO_RESULTS'].includes(d.status)) throw new Error('Google: '+d.status);
@@ -654,9 +654,9 @@ async function fetchLeads(city,niche){
       leads.push({
         id:p.place_id,name:p.name,
         rating:p.rating||0,reviews:p.user_ratings_total||0,
-        open:open===true?'Aberto':open===false?'Fechado':'â',
-        phone:'â¦',
-        address:(p.formatted_address||p.vicinity||'â').replace(/, Bras(il|ilia)?/,''),
+        open:open===true?'Aberto':open===false?'Fechado':'&#8212;',
+        phone:'&#8230;',
+        address:(p.formatted_address||p.vicinity||'&#8212;').replace(/, Bras(il|ilia)?/,''),
         cat:(p.types||[]).filter(t=>!['point_of_interest','establishment','geocode'].includes(t)).slice(0,2).map(t=>t.replace(/_/g,' ')).join(', ')||niche,
         url:'https://www.google.com/maps/place/?q=place_id:'+p.place_id,
         site:''
@@ -670,18 +670,18 @@ async function fetchLeads(city,niche){
 
   for(let i=0;i<leads.length;i+=5){
     const pct=50+Math.round(((i+5)/leads.length)*50);
-    st('ð Buscando telefones... ('+Math.min(i+5,leads.length)+'/'+leads.length+')',Math.min(pct,97));
+    st('&#128222; Buscando telefones... ('+Math.min(i+5,leads.length)+'/'+leads.length+')',Math.min(pct,97));
     await Promise.all(leads.slice(i,i+5).map(async l=>{
       try{
         const d=await apiFetch('/api/details?place_id='+l.id);
-        l.phone=d.result?.formatted_phone_number||'â';
+        l.phone=d.result?.formatted_phone_number||'&#8212;';
         l.site=d.result?.website||'';
-      }catch{l.phone='â';}
+      }catch{l.phone='&#8212;';}
     }));
   }
 }
 
-function star(r){return'â'.repeat(Math.round(r))+'â'.repeat(5-Math.round(r));}
+function star(r){return'&#9733;'.repeat(Math.round(r))+'&#9734;'.repeat(5-Math.round(r));}
 
 function renderTable(p){
   page=p;
@@ -696,12 +696,12 @@ function renderTable(p){
     tr.innerHTML=`
       <td style="color:var(--mt);font-size:12px">${gi}</td>
       <td class="nm">${l.name}</td>
-      <td>${l.rating?`<div class="stars"><span class="sv">${l.rating.toFixed(1)}</span><span style="color:#f5c542;font-size:11px">${star(l.rating)}</span><span class="sc">(${l.reviews.toLocaleString('pt-BR')})</span></div>`:'<span style="color:var(--mt)">â</span>'}</td>
+      <td>${l.rating?`<div class="stars"><span class="sv">${l.rating.toFixed(1)}</span><span style="color:#f5c542;font-size:11px">${star(l.rating)}</span><span class="sc">(${l.reviews.toLocaleString('pt-BR')})</span></div>`:'<span style="color:var(--mt)">&#8212;</span>'}</td>
       <td><span class="ts ${sc}">${l.open}</span></td>
-      <td>${l.phone&&l.phone!=='â'?`<a href="tel:${l.phone}" class="pl">${l.phone}</a>`:'<span style="color:var(--mt)">â</span>'}</td>
+      <td>${l.phone&&l.phone!=='&#8212;'?`<a href="tel:${l.phone}" class="pl">${l.phone}</a>`:'<span style="color:var(--mt)">&#8212;</span>'}</td>
       <td style="font-size:12px">${l.address}</td>
       <td style="font-size:11px;color:var(--mt)">${l.cat}</td>
-      <td><a href="${l.url}" target="_blank" class="ml">ð Ver</a></td>`;
+      <td><a href="${l.url}" target="_blank" class="ml">&#128205; Ver</a></td>`;
     tbody.appendChild(tr);
   });
   document.getElementById('cnt').textContent=leads.length+' empresas';
@@ -715,23 +715,16 @@ function renderPag(){
   const pg=document.getElementById('pgd'); pg.innerHTML='';
   if(tot<=1)return;
   const mk=(lbl,p,dis)=>{const b=document.createElement('button');b.className='pg'+(p===page?' act':'');b.textContent=lbl;b.disabled=dis;b.onclick=()=>!dis&&renderTable(p);pg.appendChild(b);};
-  mk('â Anterior',page-1,page===1);
+  mk('&#8592; Anterior',page-1,page===1);
   for(let i=1;i<=tot;i++)mk(i,i,false);
-  mk('PrÃ³xima â',page+1,page===tot);
+  mk('Pr&#243;xima &#8594;',page+1,page===tot);
 }
 
 function exportCSV(){
   if(!leads.length){alert('Sem dados.');return;}
-  const h=['#','Empresa','AvaliaÃ§Ã£o','Reviews','Status','Telefone','EndereÃ§o','Categoria','Maps','Site'];
+  const h=['#','Empresa','Avalia&#231;&#227;o','Reviews','Status','Telefone','Endere&#231;o','Categoria','Maps','Site'];
   const rows=leads.map((l,i)=>[i+1,`"${l.name.replace(/"/g,'""')}"`,l.rating||'',l.reviews||'',l.open,l.phone,`"${l.address.replace(/"/g,'""')}"`,`"${l.cat}"`,l.url,l.site]);
   const csv=[h.join(','),...rows.map(r=>r.join(','))].join('\n');
   const a=document.createElement('a');
   a.href=URL.createObjectURL(new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8;'}));
-  a.download=`leads_${document.getElementById('niche').value.replace(/\s+/g,'_')}_${document.getElementById('city').value.replace(/\s+/g,'_')}.csv`;
-  a.click();
-}
-
-['city','niche'].forEach(id=>document.getElementById(id).addEventListener('keydown',e=>{if(e.key==='Enter')startSearch();}));
-</script>
-</body>
-</html>
+  a.download=`leads_${document.getElementById('niche').value.replace(/\s+/g,'_')}_
